@@ -282,6 +282,7 @@ Estimasi Waktu Pengerjaan: ~${calculateWeeks()} Minggu`;
     const formData = new FormData();
     formData.append("name", clientName);
     formData.append("email", email);
+    formData.append("whatsapp", whatsapp);
     formData.append("service", WEBSITE_TYPES.find(w => w.id === selectedWebType)?.name || "Website Proyek");
     formData.append("message", compiledMessage);
 

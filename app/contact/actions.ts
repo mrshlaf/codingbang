@@ -5,10 +5,11 @@ import { createClient } from "@/utils/supabase/server";
 export async function submitContactForm(prevState: any, formData: FormData) {
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
+  const whatsapp = formData.get("whatsapp") as string;
   const service = formData.get("service") as string;
   const message = formData.get("message") as string;
 
-  if (!name || !email || !message) {
+  if (!name || !email || !whatsapp || !message) {
     return { success: false, error: "Please fill in all required fields." };
   }
 
@@ -20,7 +21,7 @@ export async function submitContactForm(prevState: any, formData: FormData) {
     const { error } = await supabase
       .from("contact_inquiries")
       .insert([
-        { name, email, service, message, status: "new" }
+        { name, email, whatsapp, service, message, status: "new" }
       ]);
 
     if (error) {
