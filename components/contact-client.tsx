@@ -20,24 +20,26 @@ const itemVariants = {
 
 // ESTIMATOR DATA
 const PLATFORMS = [
-  { id: "vibe", name: "Simple Static Web (Vibe Coding)", price: 250000, weeks: 1, desc: "Raw HTML & vanilla CSS page. Deploy Vercel instantly." },
-  { id: "landing", name: "Single Page Application (React & Vite)", price: 750000, weeks: 1, desc: "Sleek SPA, modern client state routing." },
-  { id: "business", name: "Full-Stack Serverless (Next.js)", price: 2000000, weeks: 2, desc: "Complete SSR/ISR app. Excellent SEO & server actions." },
-  { id: "ecommerce", name: "E-Commerce Storefront (Next.js + Midtrans)", price: 4500000, weeks: 3, desc: "Fully integrated storefront, secure payment pipeline." },
-  { id: "webapp", name: "SaaS Platform MVP (Dashboard + DB)", price: 12000000, weeks: 4, desc: "Complete dashboard system, user profiles & data backend." }
+  { id: "vibe", name: "Landing Page / Brosur Online (1 Halaman)", price: 150000, weeks: 1, desc: "Situs satu halaman super cepat untuk profil usaha, promosi produk, atau event." },
+  { id: "landing", name: "Website Profil Perusahaan (Multi-Halaman)", price: 350000, weeks: 1, desc: "Situs lengkap dengan halaman Home, Tentang Kami, Galeri, & Formulir Kontak." },
+  { id: "portfolio", name: "Portofolio Kreatif & Galeri Karya", price: 250000, weeks: 1, desc: "Situs khusus untuk menampilkan portofolio foto, desain, atau karya seni interaktif." },
+  { id: "ecommerce", name: "Website Toko Online (E-Commerce)", price: 1200000, weeks: 2, desc: "Toko digital lengkap dengan keranjang belanja, katalog produk, dan checkout." },
+  { id: "webapp", name: "Sistem Aplikasi Web & Member Dashboard", price: 2500000, weeks: 3, desc: "Situs dengan sistem dashboard login, manajemen data pelanggan, dan akses member." }
 ];
 
 const ADDONS = [
-  { id: "vercel", name: "Vercel Zero-Config Deploy", price: 50000, weeks: 0, desc: "Host on Vercel's global CDN with automated CI/CD pipeline." },
-  { id: "domain", name: "Bespoke Domain Linking (.com / .id)", price: 250000, weeks: 1, desc: "Connect your official domain with automated active SSL setup." },
-  { id: "database", name: "Supabase Realtime Database", price: 750000, weeks: 1, desc: "PostgreSQL tables, storage buckets, & secure API backend." },
-  { id: "auth", name: "Passwordless Magic Link (OTP Auth)", price: 500000, weeks: 1, desc: "Secure user logins via email passwordless OTP magic links." },
-  { id: "payment", name: "Midtrans/Stripe Checkout Gateway", price: 1000000, weeks: 1, desc: "Accept credit cards, bank transfers, & local e-wallets/QRIS." },
-  { id: "animations", name: "Framer Motion Apple-Style Physics", price: 450000, weeks: 1, desc: "Ultra smooth spring scroll effects and custom dynamic physics." },
-  { id: "instagram", name: "Instagram Social Live Feed Card", price: 150000, weeks: 0, desc: "Direct instagram live widgets & embeds automated integration." },
-  { id: "tailwind", name: "Tailwind CSS Aesthetic Overhaul", price: 350000, weeks: 0, desc: "Harmonious custom palette and pristine modern typography." },
-  { id: "lighthouse", name: "Lighthouse 100% Core Web Vitals", price: 500000, weeks: 1, desc: "Advanced bundle optimizations for perfect SEO and speed." },
-  { id: "whatsapp", name: "WhatsApp Business Integration Hub", price: 100000, weeks: 0, desc: "Floating contact helper drawer with instant API routing." }
+  { id: "vercel", name: "Hosting & Server Siap Pakai", price: 30000, weeks: 0, desc: "Setup server cloud global super cepat agar website online 24 jam gratis selamanya." },
+  { id: "domain", name: "Sambung Domain Kustom (.com / .id)", price: 150000, weeks: 1, desc: "Hubungkan domain resmi pilihan Anda lengkap dengan sertifikat keamanan SSL aktif." },
+  { id: "database", name: "Penyimpanan Database Dinamis", price: 250000, weeks: 1, desc: "Penyimpanan data real-time untuk input formulir, data produk, atau konten dinamis." },
+  { id: "auth", name: "Sistem Login Pengguna & Member", price: 200000, weeks: 1, desc: "Fitur pendaftaran dan sistem masuk member menggunakan Email atau Google." },
+  { id: "otp", name: "Login Instan Tanpa Password (OTP)", price: 100000, weeks: 1, desc: "Sistem masuk member super praktis lewat link OTP email sekali klik tanpa ketik sandi." },
+  { id: "payment", name: "Integrasi Pembayaran Otomatis", price: 450000, weeks: 1, desc: "Terima pembayaran otomatis lewat Transfer Bank, E-Wallet (Dana, GoPay), & QRIS." },
+  { id: "animations", name: "Animasi Gerakan Premium (Apple-Style)", price: 150000, weeks: 1, desc: "Animasi transisi pergeseran elemen yang memanjakan mata dan memberi kesan mahal." },
+  { id: "instagram", name: "Feed Instagram Otomatis Terhubung", price: 50000, weeks: 0, desc: "Postingan instagram terbaru Anda akan otomatis muncul di bagian galeri website." },
+  { id: "tailwind", name: "Desain Tampilan Eksklusif & Modern", price: 100000, weeks: 0, desc: "Kombinasi palet warna dan tipografi elegan yang meningkatkan kredibilitas brand." },
+  { id: "lighthouse", name: "Optimasi SEO & Kecepatan Google", price: 150000, weeks: 1, desc: "Optimasi khusus agar website berada di peringkat atas Google dan terbuka secara instan." },
+  { id: "whatsapp", name: "Chat WhatsApp Melayang Langsung", price: 40000, weeks: 0, desc: "Tombol interaktif agar calon pembeli bisa langsung chat WhatsApp Anda dengan satu klik." },
+  { id: "contact_db", name: "Formulir Kontak Anti-Spam Ke Database", price: 80000, weeks: 1, desc: "Formulir pengiriman pesan yang aman dari bot, langsung tercatat ke dalam database." }
 ];
 
 export function ContactClient() {
