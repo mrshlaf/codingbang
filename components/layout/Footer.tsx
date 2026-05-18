@@ -20,7 +20,7 @@ export function Footer() {
           <div className="flex flex-col gap-6 lg:pr-8">
             <Link href="/" className="flex items-center gap-3">
               <div className="relative w-10 h-10 rounded-full bg-muted flex items-center justify-center p-1.5 shadow-sm">
-                <Image src={logoImage} alt="CODING BANG Logo" fill className="object-contain p-1 dark:invert" />
+                <Image src={logoImage} alt="CODING BANG Logo" fill className="object-contain p-1" />
               </div>
               <span className="font-bold tracking-tight text-xl">CODING BANG</span>
             </Link>

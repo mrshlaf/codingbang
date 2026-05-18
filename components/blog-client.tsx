@@ -2,11 +2,34 @@
 
 import { motion } from "framer-motion";
 import Script from "next/script";
+import { useEffect } from "react";
 
 export function BlogClient() {
+  useEffect(() => {
+    try {
+      if ((window as any).instgrm) {
+        (window as any).instgrm.Embeds.process();
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }, []);
+
   return (
     <>
-      <Script src="https://www.instagram.com/embed.js" strategy="lazyOnload" />
+      <Script 
+        src="https://www.instagram.com/embed.js" 
+        strategy="lazyOnload" 
+        onReady={() => {
+          try {
+            if ((window as any).instgrm) {
+              (window as any).instgrm.Embeds.process();
+            }
+          } catch (e) {
+            console.error(e);
+          }
+        }}
+      />
       <div className="flex flex-col flex-1 w-full max-w-4xl mx-auto px-6 py-24 md:py-32">
         <motion.div 
           className="flex flex-col items-center text-center gap-6 mb-16"

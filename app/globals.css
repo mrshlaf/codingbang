@@ -27,6 +27,7 @@
     --accent-foreground: #F8F0E5;
     --primary: #1C352D;
     --primary-foreground: #F8F0E5;
+    --spotlight-glow: rgba(28, 53, 45, 0.035);
   }
 
   .dark {
@@ -40,6 +41,7 @@
     --accent-foreground: #1C352D;
     --primary: #F8F0E5;
     --primary-foreground: #1C352D;
+    --spotlight-glow: rgba(248, 240, 229, 0.025);
   }
 }
 
@@ -72,4 +74,23 @@
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
   }
+}
+
+/* Apple-Style Theme Transition */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 9999;
+}
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+.dark::view-transition-new(root) {
+  z-index: 1;
 }

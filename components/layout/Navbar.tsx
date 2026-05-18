@@ -42,16 +42,60 @@ export function Navbar() {
     }
   }, []);
 
-  const toggleTheme = () => {
-    if (theme === "light") {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setTheme("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setTheme("light");
+  const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const isAppearanceTransition = (document as any).startViewTransition &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!isAppearanceTransition) {
+      if (theme === "light") {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        setTheme("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+        setTheme("light");
+      }
+      return;
     }
+
+    const x = event.clientX;
+    const y = event.clientY;
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    const transition = (document as any).startViewTransition(() => {
+      if (theme === "light") {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        setTheme("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+        setTheme("light");
+      }
+    });
+
+    transition.ready.then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+      ];
+      document.documentElement.animate(
+        {
+          clipPath: theme === "light" ? clipPath.reverse() : clipPath,
+        },
+        {
+          duration: 450,
+          easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+          pseudoElement: theme === "light"
+            ? "::view-transition-old(root)"
+            : "::view-transition-new(root)",
+        }
+      );
+    });
   };
 
   // Close mobile menu on route change
@@ -80,7 +124,7 @@ export function Navbar() {
             
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-8 h-8 rounded-full overflow-hidden bg-muted/50 group-hover:bg-muted transition-colors">
-                <Image src={logoImage} alt="CODING BANG Logo" fill className="object-contain p-1 dark:invert" />
+                <Image src={logoImage} alt="CODING BANG Logo" fill className="object-contain p-1" />
               </div>
               <span className="font-bold tracking-tight text-lg group-hover:text-muted-foreground transition-colors">
                 CODING BANG

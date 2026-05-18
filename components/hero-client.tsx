@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Globe } from "lucide-react";
 import logoImage from "@/app/images/logo-codingbang-removebg.png";
+import { useEffect } from "react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -23,6 +24,15 @@ const itemVariants = {
 };
 
 export function HeroClient() {
+  useEffect(() => {
+    try {
+      if ((window as any).instgrm) {
+        (window as any).instgrm.Embeds.process();
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }, []);
   return (
     <section className="w-full min-h-[92vh] flex items-center justify-center px-6 lg:px-12 relative overflow-hidden bg-background">
       
@@ -104,7 +114,7 @@ export function HeroClient() {
               alt="CODING BANG Logo" 
               width={400}
               height={400}
-              className="object-contain drop-shadow-[0_20px_50px_rgba(28,53,45,0.12)] transition-transform duration-700 group-hover:rotate-3 dark:invert"
+              className="object-contain drop-shadow-[0_20px_50px_rgba(28,53,45,0.12)] transition-transform duration-700 group-hover:rotate-3"
               priority
             />
           </motion.div>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { HeroClient } from "@/components/hero-client";
 import Script from "next/script";
+import comingSoonImage from "@/app/images/coming soon.png";
 
 export default function Home() {
   return (
@@ -40,7 +41,10 @@ export default function Home() {
       </section>
 
       {/* INSTAGRAM JOURNAL SPOTLIGHT */}
-      <Script src="https://www.instagram.com/embed.js" strategy="lazyOnload" />
+      <Script 
+        src="https://www.instagram.com/embed.js" 
+        strategy="lazyOnload" 
+      />
       <section className="w-full py-24 px-6 bg-card border-y border-border/40 relative overflow-hidden">
         <div className="absolute -top-40 right-1/4 w-[500px] h-[500px] bg-foreground/[0.01] rounded-full blur-[120px] pointer-events-none" />
         
@@ -107,8 +111,16 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[1, 2].map((i) => (
               <Link key={i} href="/portfolio" className="group relative w-full aspect-[4/3] bg-card rounded-3xl overflow-hidden border border-border/40">
-                <div className="absolute inset-0 bg-foreground/5 group-hover:bg-transparent transition-colors duration-500" />
-                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-background/90 via-background/50 to-transparent">
+                <div className="absolute inset-0 w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out">
+                  <Image 
+                    src={comingSoonImage} 
+                    alt="Project Alpha" 
+                    fill 
+                    className="object-cover" 
+                  />
+                </div>
+                <div className="absolute inset-0 bg-foreground/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-background/90 via-background/50 to-transparent z-20">
                   <h3 className="text-2xl font-bold text-foreground">Project Alpha</h3>
                   <p className="text-muted-foreground mt-1">E-Commerce &middot; Next.js &middot; Framer Motion</p>
                 </div>
