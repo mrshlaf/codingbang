@@ -20,24 +20,24 @@ const itemVariants = {
 
 // ESTIMATOR DATA
 const PLATFORMS = [
-  { id: "vibe", name: "Simple Static Web (Vibe Coding)", price: 50000, weeks: 1, desc: "Raw HTML & vanilla CSS page. Deploy Vercel instantly." },
-  { id: "landing", name: "Single Page Application (React & Vite)", price: 100000, weeks: 1, desc: "Sleek SPA, modern client state routing." },
-  { id: "business", name: "Full-Stack Serverless (Next.js)", price: 250000, weeks: 2, desc: "Complete SSR/ISR app. Excellent SEO & server actions." },
-  { id: "ecommerce", name: "E-Commerce Storefront (Next.js + Midtrans)", price: 500000, weeks: 3, desc: "Fully integrated storefront, secure payment pipeline." },
-  { id: "webapp", name: "SaaS Platform MVP (Dashboard + DB)", price: 1000000, weeks: 4, desc: "Complete dashboard system, user profiles & data backend." }
+  { id: "vibe", name: "Simple Static Web (Vibe Coding)", price: 250000, weeks: 1, desc: "Raw HTML & vanilla CSS page. Deploy Vercel instantly." },
+  { id: "landing", name: "Single Page Application (React & Vite)", price: 750000, weeks: 1, desc: "Sleek SPA, modern client state routing." },
+  { id: "business", name: "Full-Stack Serverless (Next.js)", price: 2000000, weeks: 2, desc: "Complete SSR/ISR app. Excellent SEO & server actions." },
+  { id: "ecommerce", name: "E-Commerce Storefront (Next.js + Midtrans)", price: 4500000, weeks: 3, desc: "Fully integrated storefront, secure payment pipeline." },
+  { id: "webapp", name: "SaaS Platform MVP (Dashboard + DB)", price: 12000000, weeks: 4, desc: "Complete dashboard system, user profiles & data backend." }
 ];
 
 const ADDONS = [
-  { id: "vercel", name: "Vercel Zero-Config Deploy", price: 10000, weeks: 0, desc: "Host on Vercel's global CDN with automated CI/CD pipeline." },
-  { id: "domain", name: "Bespoke Domain Linking (.com / .id)", price: 20000, weeks: 1, desc: "Connect your official domain with automated active SSL setup." },
-  { id: "database", name: "Supabase Realtime Database", price: 50000, weeks: 1, desc: "PostgreSQL tables, storage buckets, & secure API backend." },
-  { id: "auth", name: "Passwordless Magic Link (OTP Auth)", price: 30000, weeks: 1, desc: "Secure user logins via email passwordless OTP magic links." },
-  { id: "payment", name: "Midtrans/Stripe Checkout Gateway", price: 80000, weeks: 1, desc: "Accept credit cards, bank transfers, & local e-wallets/QRIS." },
-  { id: "animations", name: "Framer Motion Apple-Style Physics", price: 25000, weeks: 1, desc: "Ultra smooth spring scroll effects and custom dynamic physics." },
-  { id: "instagram", name: "Instagram Social Live Feed Card", price: 15000, weeks: 0, desc: "Direct instagram live widgets & embeds automated integration." },
-  { id: "tailwind", name: "Tailwind CSS Aesthetic Overhaul", price: 15000, weeks: 0, desc: "Harmonious custom palette and pristine modern typography." },
-  { id: "lighthouse", name: "Lighthouse 100% Core Web Vitals", price: 30000, weeks: 1, desc: "Advanced bundle optimizations for perfect SEO and speed." },
-  { id: "whatsapp", name: "WhatsApp Business Integration Hub", price: 10000, weeks: 0, desc: "Floating contact helper drawer with instant API routing." }
+  { id: "vercel", name: "Vercel Zero-Config Deploy", price: 50000, weeks: 0, desc: "Host on Vercel's global CDN with automated CI/CD pipeline." },
+  { id: "domain", name: "Bespoke Domain Linking (.com / .id)", price: 250000, weeks: 1, desc: "Connect your official domain with automated active SSL setup." },
+  { id: "database", name: "Supabase Realtime Database", price: 750000, weeks: 1, desc: "PostgreSQL tables, storage buckets, & secure API backend." },
+  { id: "auth", name: "Passwordless Magic Link (OTP Auth)", price: 500000, weeks: 1, desc: "Secure user logins via email passwordless OTP magic links." },
+  { id: "payment", name: "Midtrans/Stripe Checkout Gateway", price: 1000000, weeks: 1, desc: "Accept credit cards, bank transfers, & local e-wallets/QRIS." },
+  { id: "animations", name: "Framer Motion Apple-Style Physics", price: 450000, weeks: 1, desc: "Ultra smooth spring scroll effects and custom dynamic physics." },
+  { id: "instagram", name: "Instagram Social Live Feed Card", price: 150000, weeks: 0, desc: "Direct instagram live widgets & embeds automated integration." },
+  { id: "tailwind", name: "Tailwind CSS Aesthetic Overhaul", price: 350000, weeks: 0, desc: "Harmonious custom palette and pristine modern typography." },
+  { id: "lighthouse", name: "Lighthouse 100% Core Web Vitals", price: 500000, weeks: 1, desc: "Advanced bundle optimizations for perfect SEO and speed." },
+  { id: "whatsapp", name: "WhatsApp Business Integration Hub", price: 100000, weeks: 0, desc: "Floating contact helper drawer with instant API routing." }
 ];
 
 export function ContactClient() {
