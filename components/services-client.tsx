@@ -21,46 +21,58 @@ const itemVariants = {
 
 const SERVICES = [
   {
-    title: "Landing Page",
-    target: "For creators & startups",
-    desc: "A highly optimized, single-page experience designed to convert visitors into customers immediately.",
-    features: ["Custom Design", "Mobile-First", "SEO Setup", "< 2s Loading Time"],
+    title: "Landing Page (1 Halaman)",
+    target: "Untuk Usaha Baru & Promosi",
+    desc: "Situs satu halaman super cepat untuk profil usaha, promosi produk, atau brosur online agar pelanggan langsung terhubung.",
+    features: ["Desain Kustom Eksklusif", "Tampilan Mobile Responsive", "Tombol WhatsApp Melayang", "SEO Google Basic"],
   },
   {
-    title: "Business Website",
-    target: "For established brands",
-    desc: "A multi-page corporate site that builds deep credibility and beautifully showcases your products or services.",
-    features: ["Multi-page Structure", "Blog Integration", "Analytics Setup", "CMS Options"],
+    title: "Website Profil Perusahaan",
+    target: "Untuk Perusahaan & Instansi",
+    desc: "Situs multi-halaman lengkap untuk membangun reputasi profesional dan memamerkan layanan bisnis Anda secara detail.",
+    features: ["Multi-halaman Lengkap", "Halaman Galeri & Kontak", "Hosting Setup Gratis", "Optimasi Kecepatan Ekstrim"],
     highlight: true,
   },
   {
-    title: "Web Application",
-    target: "For custom systems",
-    desc: "Complex, full-stack software tailored to automate your business processes and serve dynamic content.",
-    features: ["Authentication", "Database Design", "API Integrations", "Admin Dashboard"],
+    title: "Portofolio Kreatif",
+    target: "Untuk Desainer & Kreator",
+    desc: "Situs etalase karya interaktif premium untuk menonjolkan kreativitas Anda bagi klien dan pemberi kerja.",
+    features: ["Galeri Foto/Video Interaktif", "Desain Eksklusif Modern", "Sambung Domain Kustom", "Hubungan Sosial Media"],
+  },
+  {
+    title: "Toko Online (E-Commerce)",
+    target: "Untuk Penjualan Produk",
+    desc: "Toko digital mandiri lengkap dengan keranjang belanja dan checkout otomatis untuk memudahkan pelanggan bertransaksi.",
+    features: ["Katalog & Detail Produk", "Sistem Keranjang Belanja", "Integrasi Ongkos Kirim", "Gerbang Pembayaran Bank/QRIS"],
+  },
+  {
+    title: "Aplikasi & Member Dashboard",
+    target: "Untuk Sistem & Operasional",
+    desc: "Sistem aplikasi berbasis web kustom lengkap dengan sistem login member khusus, pengelolaan database, dan manajemen internal.",
+    features: ["Sistem Login Member", "Halaman Dashboard Khusus", "Penyimpanan Database Dinamis", "Manajemen Konten & Hak Akses"],
   },
 ];
 
 const PROCESS = [
-  { step: "01", title: "Consultation", desc: "Tell us your needs via WhatsApp or Email." },
-  { step: "02", title: "Estimate", desc: "We provide a clear scope and timeline." },
-  { step: "03", title: "Production", desc: "Development begins immediately." },
-  { step: "04", title: "Revision", desc: "Iterating until you are completely satisfied." },
-  { step: "05", title: "Launch", desc: "Deployment to production." },
+  { step: "01", title: "Konsultasi Cepat", desc: "Diskusikan kebutuhan proyek Anda secara santai via WhatsApp atau Email." },
+  { step: "02", title: "Estimasi Transparan", desc: "Kami berikan rancangan cetak biru spesifikasi fitur dan rincian harga terbaik." },
+  { step: "03", title: "Tahap Produksi", desc: "Tim pengembang kami langsung merakit website Anda dengan standar performa tertinggi." },
+  { step: "04", title: "Revisi & Masukan", desc: "Proses peninjauan bersama hingga tampilan dan fungsi website benar-benar sempurna." },
+  { step: "05", title: "Peluncuran Live", desc: "Penyetelan server cloud gratis, sambung domain, dan website resmi mengudara!" },
 ];
 
 const FAQS = [
   { 
-    q: "Why don't you use WordPress?", 
-    a: "WordPress is excellent for blogging, but often lacks the performance and tight security required for premium brand experiences. Our hand-coded systems are significantly faster, more secure, and perfectly tailored." 
+    q: "Kenapa biayanya bisa sangat terjangkau?", 
+    a: "Kami memotong biaya overhead agensi besar yang tidak perlu. Dengan arsitektur modern seperti Vercel dan Supabase, kami dapat memangkas biaya server bulanan menjadi sangat murah bahkan gratis di awal, tanpa mengorbankan kualitas sama sekali." 
   },
   { 
-    q: "How long does a project take?", 
-    a: "Depending on the scope, landing pages typically take 3-7 days, while full business websites may take 1-2 weeks. Complex applications are estimated during consultation." 
+    q: "Berapa lama proses pembuatan website?", 
+    a: "Untuk Landing Page dan Company Profile sederhana biasanya selesai dalam 3 sampai 7 hari. Untuk sistem kustom yang lebih kompleks seperti E-Commerce atau Dashboard Member membutuhkan waktu sekitar 2 hingga 3 minggu." 
   },
   { 
-    q: "Do you offer revisions?", 
-    a: "Absolutely. We work closely with you and offer structured revision rounds to ensure the final product perfectly aligns with your vision." 
+    q: "Apakah saya bisa melakukan revisi?", 
+    a: "Tentu saja. Kami mengutamakan kepuasan Anda. Kami menyediakan sesi revisi terstruktur agar hasil akhir website benar-benar sesuai dengan ekspektasi dan citra brand Anda." 
   },
 ];
 
@@ -78,11 +90,11 @@ export function ServicesClient() {
         transition={{ duration: 0.8 }}
       >
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1] max-w-4xl">
-          Websites that work. <br />
-          <span className="text-muted-foreground font-serif italic font-light">Not just pretty pictures.</span>
+          Website yang Berdampak. <br />
+          <span className="text-muted-foreground font-serif italic font-light">Bukan sekadar tampilan visual.</span>
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl font-medium">
-          We hand-code every project to ensure blazing fast performance, top-tier security, and a seamless user experience. 
+          Kami merakit setiap proyek dari baris kode nol untuk memastikan performa yang luar biasa cepat, keamanan maksimal, dan pengalaman pengguna yang mulus.
         </p>
       </motion.section>
 
@@ -140,7 +152,7 @@ export function ServicesClient() {
                     : "bg-foreground text-background hover:bg-foreground/90 shadow-foreground/10"
                 )}
               >
-                Request Estimate
+                Mulai Konfigurasi
                 <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
@@ -157,7 +169,7 @@ export function ServicesClient() {
         viewport={{ once: true, margin: "-100px" }}
       >
         <motion.h2 variants={itemVariants} className="text-4xl font-bold tracking-tight mb-16 text-center">
-          How it works
+          Alur Kerja Kami
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
           {PROCESS.map((proc, idx) => (
