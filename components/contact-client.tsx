@@ -310,14 +310,11 @@ Estimasi Waktu Pengerjaan: ~${calculateWeeks()} Minggu`;
           transition={{ duration: 0.6 }}
         >
           <div>
-            <span className="text-xs uppercase font-extrabold tracking-widest text-muted-foreground bg-muted px-3 py-1 rounded-full inline-block mb-3">
-              Formulir Kebutuhan Website
-            </span>
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-[1.1] mb-4">
-              Konfigurator <br />Cetak Biru.
+              Rencana & <br />Spesifikasi Proyek.
             </h1>
             <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-sm">
-              Buat simulasi spesifikasi fitur website secara instan. Dapatkan estimasi biaya secara transparan sesuai standar harga jasa digital Indonesia.
+              Rumuskan struktur fitur, pilihan teknologi, dan estimasi investasi proyek digital Anda secara transparan dan akurat.
             </p>
           </div>
 
@@ -332,8 +329,8 @@ Estimasi Waktu Pengerjaan: ~${calculateWeeks()} Minggu`;
                 <Phone className="w-4 h-4 text-white fill-white" />
               </div>
               <div>
-                <h3 className="font-bold text-foreground text-sm">Konsultasi WhatsApp</h3>
-                <p className="text-xs text-muted-foreground mt-0.5">Chat instan langsung.</p>
+                <h3 className="font-bold text-foreground text-sm">Konsultasi Cepat</h3>
+                <p className="text-xs text-muted-foreground mt-0.5">Hubungi tim teknis kami via WhatsApp.</p>
               </div>
             </a>
 
@@ -345,7 +342,7 @@ Estimasi Waktu Pengerjaan: ~${calculateWeeks()} Minggu`;
                 <Mail className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="font-bold text-foreground text-sm">Email Studio</h3>
+                <h3 className="font-bold text-foreground text-sm">Layanan Surat</h3>
                 <p className="text-xs text-muted-foreground mt-0.5">codingbangg@gmail.com</p>
               </div>
             </a>
@@ -355,13 +352,13 @@ Estimasi Waktu Pengerjaan: ~${calculateWeeks()} Minggu`;
           <div className="p-5 rounded-3xl border border-border/30 bg-muted/20 flex flex-col gap-3">
             <div className="flex items-center gap-2 text-foreground font-bold text-sm">
               <AlertCircle className="w-4 h-4" />
-              <span>Hal yang Sering Diremehkan Client:</span>
+              <span>Panduan Perencanaan Digital:</span>
             </div>
             <ul className="text-xs text-muted-foreground flex flex-col gap-2 list-disc list-inside">
-              <li>Biaya sewa domain & hosting dibayar berkala tiap tahun.</li>
-              <li>Website butuh pemeliharaan rutin agar terhindar dari bug & hacker.</li>
-              <li>Tampilan penuh animasi yang terlalu berat menurunkan kecepatan web.</li>
-              <li>Skalabilitas sistem murah sangat sulit ditingkatkan di masa depan.</li>
+              <li>Biaya sewa domain & hosting wajib diperpanjang secara berkala tiap tahun.</li>
+              <li>Pemeliharaan rutin diperlukan secara periodik untuk mencegah bug & celah keamanan.</li>
+              <li>Optimalisasi aset gambar & scripts sangat krusial demi kecepatan pemuatan halaman.</li>
+              <li>Infrastruktur web berskala kecil membutuhkan optimasi khusus saat menerima lonjakan trafik besar.</li>
             </ul>
           </div>
         </motion.div>
