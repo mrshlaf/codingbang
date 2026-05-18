@@ -64,7 +64,9 @@ export function Navbar() {
     const endRadius = Math.hypot(
       Math.max(x, window.innerWidth - x),
       Math.max(y, window.innerHeight - y)
-    );
+    ) + 30; // Add safe padding to fully clear viewport corners
+
+    document.documentElement.classList.add("no-transition");
 
     const transition = (document as any).startViewTransition(() => {
       if (theme === "light") {
@@ -95,6 +97,11 @@ export function Navbar() {
             : "::view-transition-new(root)",
         }
       );
+    });
+
+    // Remove no-transition class once the view transition finishes completely
+    transition.finished.then(() => {
+      document.documentElement.classList.remove("no-transition");
     });
   };
 

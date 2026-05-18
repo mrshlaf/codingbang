@@ -94,3 +94,9 @@
 .dark::view-transition-new(root) {
   z-index: 1;
 }
+
+/* Eliminate transition conflicts during View Transitions */
+.no-transition,
+.no-transition * {
+  transition: none !important;
+}
