@@ -20,16 +20,24 @@ const itemVariants = {
 
 // ESTIMATOR DATA
 const PLATFORMS = [
-  { id: "landing", name: "Situs Statis Simple", price: 100000, weeks: 1, desc: "High-converting single page, perfect for simple static web" },
-  { id: "business", name: "Situs Bisnis Presence", price: 500000, weeks: 2, desc: "Complete multi-page corporate presence & blog" },
-  { id: "webapp", name: "Aplikasi Sistem Custom", price: 1500000, weeks: 4, desc: "Dynamic custom portal, dashboard, & db backend" }
+  { id: "vibe", name: "Simple Static Web (Vibe Coding)", price: 50000, weeks: 1, desc: "Raw HTML & vanilla CSS page. Deploy Vercel instantly." },
+  { id: "landing", name: "Single Page Application (React & Vite)", price: 100000, weeks: 1, desc: "Sleek SPA, modern client state routing." },
+  { id: "business", name: "Full-Stack Serverless (Next.js)", price: 250000, weeks: 2, desc: "Complete SSR/ISR app. Excellent SEO & server actions." },
+  { id: "ecommerce", name: "E-Commerce Storefront (Next.js + Midtrans)", price: 500000, weeks: 3, desc: "Fully integrated storefront, secure payment pipeline." },
+  { id: "webapp", name: "SaaS Platform MVP (Dashboard + DB)", price: 1000000, weeks: 4, desc: "Complete dashboard system, user profiles & data backend." }
 ];
 
 const ADDONS = [
-  { id: "database", name: "Supabase DB Integration", price: 100000, weeks: 1, desc: "Real-time subscriptions & custom databases" },
-  { id: "auth", name: "User Authentication", price: 50000, weeks: 1, desc: "Secure social login, profiles & permissions" },
-  { id: "ecommerce", name: "Stripe Payment Gateway", price: 150000, weeks: 1, desc: "Fully secure checkout & subscription plans" },
-  { id: "animations", name: "Apple-Style Custom Motion", price: 30000, weeks: 1, desc: "Advanced high-end custom physics & scrolls" }
+  { id: "vercel", name: "Vercel Zero-Config Deploy", price: 10000, weeks: 0, desc: "Host on Vercel's global CDN with automated CI/CD pipeline." },
+  { id: "domain", name: "Bespoke Domain Linking (.com / .id)", price: 20000, weeks: 1, desc: "Connect your official domain with automated active SSL setup." },
+  { id: "database", name: "Supabase Realtime Database", price: 50000, weeks: 1, desc: "PostgreSQL tables, storage buckets, & secure API backend." },
+  { id: "auth", name: "Passwordless Magic Link (OTP Auth)", price: 30000, weeks: 1, desc: "Secure user logins via email passwordless OTP magic links." },
+  { id: "payment", name: "Midtrans/Stripe Checkout Gateway", price: 80000, weeks: 1, desc: "Accept credit cards, bank transfers, & local e-wallets/QRIS." },
+  { id: "animations", name: "Framer Motion Apple-Style Physics", price: 25000, weeks: 1, desc: "Ultra smooth spring scroll effects and custom dynamic physics." },
+  { id: "instagram", name: "Instagram Social Live Feed Card", price: 15000, weeks: 0, desc: "Direct instagram live widgets & embeds automated integration." },
+  { id: "tailwind", name: "Tailwind CSS Aesthetic Overhaul", price: 15000, weeks: 0, desc: "Harmonious custom palette and pristine modern typography." },
+  { id: "lighthouse", name: "Lighthouse 100% Core Web Vitals", price: 30000, weeks: 1, desc: "Advanced bundle optimizations for perfect SEO and speed." },
+  { id: "whatsapp", name: "WhatsApp Business Integration Hub", price: 10000, weeks: 0, desc: "Floating contact helper drawer with instant API routing." }
 ];
 
 export function ContactClient() {
