@@ -54,15 +54,15 @@ export function HeroClient() {
             variants={itemVariants}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-foreground leading-[1.05]"
           >
-            Websites that work, <br />
-            <span className="text-muted-foreground font-serif italic font-light tracking-normal block mt-1">not just pretty.</span>
+            Website yang Berdampak, <br />
+            <span className="text-muted-foreground font-serif italic font-light tracking-normal block mt-1">bukan sekadar indah.</span>
           </motion.h1>
           
           <motion.p 
             variants={itemVariants}
             className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed font-medium"
           >
-            We hand-code every project from scratch. Zero templates, absolute speed, premium security, and standard aesthetics for businesses that refuse to settle.
+            Kami merakit setiap proyek dari baris kode nol. Tanpa templat pasaran, kecepatan mutlak, keamanan maksimal, dan estetika premium untuk bisnis yang menolak berkompromi.
           </motion.p>
           
           <motion.div 
@@ -74,13 +74,13 @@ export function HeroClient() {
               className="group inline-flex items-center justify-center gap-2.5 h-14 px-8 rounded-full font-bold text-base bg-foreground text-background hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-foreground/10"
             >
               <Globe className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-              Explore Services
+              Jelajahi Layanan
             </Link>
             <Link
               href="/portfolio"
               className="group inline-flex items-center justify-center gap-2 h-14 px-8 rounded-full font-bold text-base bg-transparent text-foreground border-2 border-border hover:border-foreground/40 hover:bg-foreground/[0.02] active:scale-95 transition-all duration-300"
             >
-              See Our Work
+              Lihat Karya Kami
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
