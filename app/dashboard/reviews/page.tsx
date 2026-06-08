@@ -44,7 +44,7 @@ export default async function ReviewsPage() {
                     <span className="text-foreground font-medium">{review.client_name}</span>
                   </td>
                   <td className="px-4 py-3">
-                    <span className="text-yellow-500">
+                    <span className="text-muted-foreground">
                       {"★".repeat(review.rating)}{"☆".repeat(5 - review.rating)}
                     </span>
                   </td>

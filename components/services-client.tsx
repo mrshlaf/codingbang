@@ -233,7 +233,7 @@ export function ServicesClient() {
               </div>
 
               {pkg.highlight && (
-                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest bg-background/20 text-background px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full w-fit">
+                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest bg-background/20 text-background px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full w-fit">
                   Paling Populer
                 </span>
               )}

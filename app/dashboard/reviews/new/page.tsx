@@ -10,7 +10,7 @@ export default function NewReviewPage() {
     <div>
       <h1 className="text-2xl font-bold text-foreground mb-6">Tambah Review</h1>
       <form action={formAction} className="max-w-2xl space-y-6">
-        {state?.error && <div className="p-4 rounded-lg bg-red-500/10 text-red-500 text-sm">{state.error}</div>}
+        {state?.error && <div className="p-4 rounded-lg bg-accent/10 text-accent-foreground text-sm">{state.error}</div>}
 
         <div className="space-y-1.5">
           <label htmlFor="client_name" className="block text-sm font-medium text-foreground">Nama Klien</label>

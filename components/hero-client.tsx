@@ -27,7 +27,7 @@ export function HeroClient() {
     <section className="w-full min-h-[92vh] flex items-center justify-center px-6 lg:px-12 relative overflow-hidden bg-background">
       
       {/* Premium Tech Grid & Ambient Radial Light */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(28,53,45,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(28,53,45,0.04)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)] pointer-events-none" style={{ backgroundImage: 'linear-gradient(to right, var(--grid-line) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px)' }} />
       <div className="absolute -top-40 left-1/4 w-[500px] h-[500px] bg-foreground/[0.03] rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute -bottom-40 right-1/4 w-[500px] h-[500px] bg-foreground/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
@@ -81,7 +81,7 @@ export function HeroClient() {
  
         {/* IMAGE COLUMN */}
         <motion.div 
-          className="lg:col-span-5 relative w-full max-w-sm lg:max-w-full aspect-square mx-auto lg:ml-auto order-1 lg:order-2 flex items-center justify-center"
+          className="lg:col-span-5 relative w-full max-w-md lg:max-w-lg aspect-square mx-auto lg:ml-auto order-1 lg:order-2 flex items-center justify-center"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
@@ -100,14 +100,14 @@ export function HeroClient() {
             whileHover={{ scale: 1.03 }}
           >
             {/* Pulsing glow behind the logo */}
-            <div className="absolute w-[80%] h-[80%] bg-foreground/[0.04] rounded-full blur-[80px] group-hover:bg-foreground/[0.08] transition-colors duration-700 pointer-events-none" />
+            <div className="absolute w-[90%] h-[90%] bg-foreground/[0.05] rounded-full blur-[100px] group-hover:bg-foreground/[0.1] transition-colors duration-700 pointer-events-none" />
             
             <Image 
               src={logoImage} 
               alt="CODING BANG Logo" 
-              width={400}
-              height={400}
-              className="object-contain drop-shadow-[0_20px_50px_rgba(28,53,45,0.12)] transition-transform duration-700 group-hover:rotate-3"
+              width={600}
+              height={600}
+              className="object-contain w-full h-full transition-transform duration-700 group-hover:rotate-3 scale-90 sm:scale-100" style={{ filter: 'drop-shadow(var(--logo-shadow))' }}
               priority
             />
           </motion.div>

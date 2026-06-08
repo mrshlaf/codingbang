@@ -86,7 +86,7 @@ export function ContactClient() {
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
           Hubungi Kami
         </h1>
-        <p className="text-muted-foreground font-medium">
+        <p className="text-muted-foreground font-medium text-base sm:text-lg">
           Konsultasi gratis. Ceritakan kebutuhan website Anda.
         </p>
       </motion.div>

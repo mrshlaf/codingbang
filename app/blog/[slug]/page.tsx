@@ -63,7 +63,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <div className="mt-32 p-10 rounded-[3rem] bg-muted/40 border border-border/50 flex flex-col items-center text-center gap-6 shadow-sm">
           <h3 className="text-3xl font-bold text-foreground">Need a custom website?</h3>
           <p className="text-muted-foreground max-w-md text-lg">We build fast, secure, and beautiful digital experiences without relying on generic templates.</p>
-          <Link href="/contact" className="mt-4 px-10 py-4 bg-foreground text-background font-bold rounded-full hover:scale-105 active:scale-95 transition-transform shadow-xl shadow-foreground/10">
+          <Link href="/contact" className="mt-4 px-10 py-4 bg-foreground text-background font-bold text-base sm:text-lg rounded-full hover:scale-105 active:scale-95 transition-transform shadow-xl shadow-foreground/10">
             Contact Us
           </Link>
         </div>

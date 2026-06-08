@@ -12,10 +12,10 @@ export default async function DashboardPage() {
   const newInquiries = inquiries.filter((i) => i.status === "new").length;
 
   const cards = [
-    { label: "Projects", value: projectCount, icon: FolderKanban, color: "text-blue-500", href: "/dashboard/projects" },
-    { label: "Reviews", value: reviews.length, icon: Star, color: "text-yellow-500", href: "/dashboard/reviews" },
-    { label: "Team Members", value: teamCount, icon: Users, color: "text-green-500", href: "/dashboard/team" },
-    { label: "New Inquiries", value: newInquiries, icon: MessageSquareText, color: "text-purple-500", href: "/dashboard/inquiries" },
+    { label: "Projects", value: projectCount, icon: FolderKanban, color: "text-foreground", href: "/dashboard/projects" },
+    { label: "Reviews", value: reviews.length, icon: Star, color: "text-foreground", href: "/dashboard/reviews" },
+    { label: "Team Members", value: teamCount, icon: Users, color: "text-foreground", href: "/dashboard/team" },
+    { label: "New Inquiries", value: newInquiries, icon: MessageSquareText, color: "text-foreground", href: "/dashboard/inquiries" },
   ];
 
   return (

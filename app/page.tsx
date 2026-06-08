@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { HeroClient } from "@/components/hero-client";
 import { motion } from "framer-motion";
 import { ArrowRight, Code, Users, Award, Star, MessageCircle } from "lucide-react";
 import { PROJECTS } from "@/lib/data";
-import comingSoonImage from "@/app/images/coming soon.png";
+import { ScreenshotThumbnail } from "@/components/screenshot-thumbnail";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -176,7 +175,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-extrabold tracking-tight text-foreground">Karya Terpilih</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">Karya Terpilih</h2>
             <p className="text-muted-foreground max-w-2xl text-base font-medium">Beberapa proyek yang baru saja kami selesaikan.</p>
           </motion.div>
           
@@ -191,16 +190,14 @@ export default function Home() {
               <motion.div key={project.id} variants={itemVariants}>
                 <Link href={`/portfolio/${project.slug}`} className="group relative w-full aspect-[4/3] bg-card rounded-3xl overflow-hidden border border-border/40 block shadow-sm hover:shadow-2xl hover:border-foreground/30 transition-all duration-500">
                   <div className="absolute inset-0 w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out">
-                    <Image 
-                      src={comingSoonImage} 
-                      alt={project.title} 
-                      fill 
-                      className="object-cover" 
-                    />
+                    {project.client_url ? (
+                      <ScreenshotThumbnail url={project.client_url} title={project.title} />
+                    ) : (
+                      <div className="absolute inset-0 bg-gradient-to-br from-foreground/5 to-foreground/10" />
+                    )}
                   </div>
-                  <div className="absolute inset-0 bg-foreground/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-background/95 via-background/60 to-transparent z-20">
-                    <h3 className="text-2xl font-extrabold text-foreground group-hover:text-[#1C352D] dark:group-hover:text-[#F8F0E5] transition-colors">{project.title}</h3>
+                    <h3 className="text-2xl font-extrabold text-foreground group-hover:text-foreground transition-colors">{project.title}</h3>
                     <p className="text-muted-foreground mt-1 font-medium text-sm">{project.tech_stack.slice(0, 3).join(" · ")}</p>
                   </div>
                 </Link>
@@ -236,7 +233,7 @@ export default function Home() {
         >
           <div className="flex flex-col items-center text-center gap-3 mb-16">
             <span className="text-xs font-extrabold uppercase tracking-widest text-muted-foreground bg-muted/40 px-3.5 py-1.5 rounded-full">Testimonial</span>
-            <h2 className="text-4xl font-extrabold tracking-tight text-foreground">Kata Mereka</h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">Kata Mereka</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -289,7 +286,7 @@ export default function Home() {
 
       {/* CTA FINAL */}
       <section className="w-full py-24 px-6 border-t border-border bg-foreground text-background relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-background/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
         
         <motion.div 
           className="max-w-4xl mx-auto flex flex-col items-center text-center gap-8"
@@ -307,14 +304,14 @@ export default function Home() {
               href="https://wa.me/6285810289428?text=Halo%20CODING%20BANG%2C%20saya%20mau%20konsultasi%20soal%20website"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2.5 h-14 px-10 rounded-full font-bold text-lg bg-background text-foreground hover:scale-105 active:scale-95 transition-all duration-300 shadow-2xl"
+              className="group inline-flex items-center justify-center gap-2.5 h-14 px-10 rounded-full font-bold text-base sm:text-lg bg-background text-foreground hover:scale-105 active:scale-95 transition-all duration-300 shadow-2xl"
             >
               <MessageCircle className="w-5 h-5" />
               <span>WhatsApp Sekarang</span>
             </a>
             <Link
               href="/calculator"
-              className="inline-flex items-center justify-center gap-2 h-14 px-10 rounded-full font-bold text-lg border-2 border-background/30 text-background hover:bg-background/10 transition-all"
+              className="inline-flex items-center justify-center gap-2 h-14 px-10 rounded-full font-bold text-base sm:text-lg border-2 border-background/30 text-background hover:bg-background/10 transition-all"
             >
               Hitung Estimasi
               <ArrowRight className="w-5 h-5" />

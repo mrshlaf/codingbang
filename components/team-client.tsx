@@ -2,10 +2,6 @@
 
 import { motion } from "framer-motion";
 import {
-  Code2,
-  ExternalLink,
-  Globe,
-  Hash,
   MessageCircle,
   Users,
 } from "lucide-react";
@@ -24,19 +20,6 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-function SocialIcon({ platform }: { platform: string }) {
-  switch (platform) {
-    case "github":
-      return <Code2 className="w-4 h-4" />;
-    case "linkedin":
-      return <ExternalLink className="w-4 h-4" />;
-    case "instagram":
-      return <Hash className="w-4 h-4" />;
-    default:
-      return <Globe className="w-4 h-4" />;
-  }
-}
-
 export function TeamClient({ members }: { members: TeamMember[] }) {
   const team = members.map((m) => ({
     ...m,
@@ -47,8 +30,6 @@ export function TeamClient({ members }: { members: TeamMember[] }) {
       .slice(0, 2)
       .toUpperCase(),
   }));
-
-  const socialPlatforms = ["github", "linkedin", "instagram"] as const;
 
   return (
     <div className="flex flex-col flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-24 md:py-32 overflow-hidden">
@@ -80,45 +61,28 @@ export function TeamClient({ members }: { members: TeamMember[] }) {
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-fr gap-4 sm:gap-5 lg:gap-6">
           {team.map((member) => (
             <motion.div
               key={member.id}
               variants={itemVariants}
-              className="flex flex-col gap-3 sm:gap-4 p-5 sm:p-6 rounded-2xl border border-border/40 bg-card shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className="flex flex-col gap-4 sm:gap-5 p-6 sm:p-6 lg:p-7 rounded-2xl border border-border/40 bg-card shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-foreground to-foreground/70 text-background flex items-center justify-center text-base sm:text-lg font-bold">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-foreground to-foreground/70 text-background flex items-center justify-center text-lg sm:text-xl font-bold flex-shrink-0">
                 {member.initials}
               </div>
               <div>
-                <h3 className="text-base sm:text-lg font-bold text-foreground tracking-tight">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground tracking-tight leading-tight">
                   {member.name}
                 </h3>
-                <p className="text-xs font-semibold text-muted-foreground mt-0.5">
+                <p className="text-xs font-semibold text-muted-foreground mt-1">
                   {member.role}
                 </p>
               </div>
               {member.bio && (
-                <p className="text-xs sm:text-[13px] text-muted-foreground leading-relaxed">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3 sm:line-clamp-none">
                   {member.bio}
                 </p>
-              )}
-              {socialPlatforms.some((p) => member.social[p]) && (
-                <div className="flex items-center gap-2 mt-auto pt-3 border-t border-border/30">
-                  {socialPlatforms.map((platform) =>
-                    member.social[platform] ? (
-                      <a
-                        key={platform}
-                        href={member.social[platform]}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-1.5 rounded-lg border border-border/40 text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
-                      >
-                        <SocialIcon platform={platform} />
-                      </a>
-                    ) : null
-                  )}
-                </div>
               )}
             </motion.div>
           ))}

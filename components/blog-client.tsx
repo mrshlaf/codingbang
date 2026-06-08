@@ -71,7 +71,7 @@ export function BlogClient({ posts }: { posts: Post[] }) {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-foreground">Blog Edukasi</h1>
-          <p className="text-lg text-muted-foreground max-w-xl font-medium">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-xl font-medium">
             Artikel dan wawasan seputar web development, performa, dan digital bisnis — langsung dari Instagram Codingbang.
           </p>
         </motion.div>
@@ -105,7 +105,7 @@ export function BlogClient({ posts }: { posts: Post[] }) {
               key={tag}
               onClick={() => setActiveTag(tag)}
               className={cn(
-                "px-4 py-2 rounded-full text-xs font-bold transition-all",
+                "px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all",
                 activeTag === tag
                   ? "bg-foreground text-background shadow-lg"
                   : "bg-muted/30 text-muted-foreground border border-border/40 hover:border-foreground/30"
@@ -134,7 +134,7 @@ export function BlogClient({ posts }: { posts: Post[] }) {
                     </span>
                   ))}
                 </div>
-                <h2 className="text-xl font-bold text-foreground tracking-tight group-hover:text-muted-foreground transition-colors line-clamp-2">
+                <h2 className="text-lg sm:text-xl font-bold text-foreground tracking-tight group-hover:text-muted-foreground transition-colors line-clamp-2">
                   {post.meta.title}
                 </h2>
                 <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">

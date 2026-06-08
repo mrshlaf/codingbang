@@ -42,7 +42,7 @@ export function ReviewsClient({
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
           Ulasan Klien
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl font-medium">
+        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl font-medium">
           Apa kata mereka tentang pengalaman bekerja sama dengan kami.
         </p>
       </motion.div>
@@ -80,7 +80,7 @@ export function ReviewsClient({
           href="https://wa.me/6285810289428?text=Halo%20CODING%20BANG%2C%20saya%20tertarik%20dengan%20jasa%20pembuatan%20websitenya"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2.5 h-12 px-6 rounded-full font-bold bg-foreground text-background hover:scale-105 transition-all shadow-lg"
+          className="inline-flex items-center gap-2.5 h-12 px-6 rounded-full font-bold text-sm sm:text-base bg-foreground text-background hover:scale-105 transition-all shadow-lg"
         >
           <MessageCircle className="w-4 h-4" /> Jadilah Klien Berikutnya
         </a>

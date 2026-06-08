@@ -2,15 +2,16 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, ArrowUpRight, MessageCircle } from "lucide-react";
-import Image from "next/image";
-import comingSoonImage from "@/app/images/coming soon.png";
+import { ArrowLeft, ExternalLink, MessageCircle } from "lucide-react";
+import { useState } from "react";
 import type { Project } from "@/lib/data";
 import { ScrollProgress } from "@/components/scroll-progress";
 
 export function PortfolioDetailClient({ project }: { project: Project }) {
   const { scrollY } = useScroll();
   const yParallax = useTransform(scrollY, [0, 1000], [0, 200]);
+  const [iframeLoading, setIframeLoading] = useState(true);
+  const [iframeError, setIframeError] = useState(false);
 
   const hasLink = project.client_url;
 
@@ -35,7 +36,7 @@ export function PortfolioDetailClient({ project }: { project: Project }) {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.05]">
             {project.title}
           </h1>
-          <p className="text-2xl text-muted-foreground max-w-3xl leading-relaxed font-medium">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed font-medium">
             {project.description}
           </p>
 
@@ -45,7 +46,7 @@ export function PortfolioDetailClient({ project }: { project: Project }) {
                 href={project.client_url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 h-14 px-8 rounded-full font-bold text-lg bg-foreground text-background hover:scale-105 active:scale-95 transition-all shadow-xl shadow-foreground/10"
+                className="inline-flex items-center gap-2 h-14 px-8 rounded-full font-bold text-base sm:text-lg bg-foreground text-background hover:scale-105 active:scale-95 transition-all shadow-xl shadow-foreground/10"
               >
                 Kunjungi Website <ExternalLink className="w-5 h-5" />
               </a>
@@ -54,27 +55,17 @@ export function PortfolioDetailClient({ project }: { project: Project }) {
               href={`https://wa.me/6285810289428?text=Halo%20CODING%20BANG%2C%20saya%20tertarik%20dengan%20project%20${encodeURIComponent(project.title)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 h-14 px-8 rounded-full font-bold text-lg border-2 border-border/60 bg-background text-foreground hover:border-foreground transition-colors"
+              className="inline-flex items-center gap-2 h-14 px-8 rounded-full font-bold text-base sm:text-lg border-2 border-border/60 bg-background text-foreground hover:border-foreground transition-colors"
             >
               <MessageCircle className="w-5 h-5" /> Buat Project Serupa
             </a>
           </div>
         </motion.header>
 
-        {/* PARALLAX MOCKUP IMAGE */}
-        <div className="w-full aspect-[16/9] lg:aspect-[21/9] bg-muted rounded-[2.5rem] mb-24 overflow-hidden border-2 border-border/40 relative shadow-2xl">
-          <motion.div 
-            style={{ y: yParallax }}
-            className="absolute -inset-[10%] w-[120%] h-[120%]"
-          >
-            <Image 
-              src={comingSoonImage} 
-              alt={project.title} 
-              fill 
-              className="object-cover" 
-            />
-          </motion.div>
-        </div>
+        {/* LIVE WEBSITE PREVIEW — Laptop Mockup with Auto-Scroll */}
+        {hasLink && (
+          <LaptopPreview url={project.client_url} title={project.title} />
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-16 lg:gap-24">
           <motion.section 
@@ -130,14 +121,14 @@ export function PortfolioDetailClient({ project }: { project: Project }) {
           <div className="absolute top-0 right-0 w-64 h-64 bg-background/5 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
           
           <h3 className="text-4xl md:text-5xl font-bold relative z-10">Butuh Project Serupa?</h3>
-          <p className="text-background/80 max-w-2xl text-xl font-medium relative z-10">
+          <p className="text-background/80 max-w-2xl text-base sm:text-lg md:text-xl font-medium relative z-10">
             Konsultasi gratis dulu. Ceritakan kebutuhan Anda, kami siap membantu mewujudkannya.
           </p>
           <a
             href={`https://wa.me/6285810289428?text=Halo%20CODING%20BANG%2C%20saya%20tertarik%20dengan%20project%20${encodeURIComponent(project.title)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative z-10 mt-4 inline-flex items-center gap-3 px-10 py-5 bg-background text-foreground font-bold text-lg rounded-full hover:scale-105 active:scale-95 transition-all shadow-2xl"
+            className="group relative z-10 mt-4 inline-flex items-center gap-3 px-10 py-5 bg-background text-foreground font-bold text-base sm:text-lg rounded-full hover:scale-105 active:scale-95 transition-all shadow-2xl"
           >
             <MessageCircle className="w-5 h-5" /> Konsultasi Sekarang
           </a>

@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 export function Footer() {
   return (
-    <footer className="w-full pt-24 pb-10 px-6 border-t border-border bg-foreground text-background mt-auto overflow-hidden relative">
+    <footer className="w-full pt-24 pb-10 px-6 bg-foreground text-background mt-auto overflow-hidden relative">
       <div className="absolute top-0 right-0 w-96 h-96 bg-background/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
       
       <div className="max-w-7xl mx-auto flex flex-col gap-20 relative z-10">

@@ -44,7 +44,7 @@ konten tech yang dangkal dan studio web berbasis template murahan, CODING BANG
 hadir sebagai antitesis: konten yang menohok, sistem yang dibangun dengan tangan
 (hand-coded), dan output yang bisa bicara sendiri.
 
-Website ini bukan sekadar portfolio online. Ini adalah command center, media
+Website ini bukan sekadar portfolio online. Ini adalah command center, mediaincrease the size and visual prominence of the hero logo/illustration on the right side. The current logo feels undersized and lacks visual balance compared to the headline. Scale it up appropriately across desktop, tablet, and mobile while maintaining proper proportions and spacing.
 edukasi, dan storefront jasa — semuanya dalam satu sistem yang bersih, cepat,
 dan efisien.
 

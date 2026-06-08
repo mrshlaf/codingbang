@@ -56,9 +56,9 @@ export default async function ProjectsPage() {
                   </td>
                   <td className="px-4 py-3">
                     {project.is_featured ? (
-                      <span className="px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 text-xs">Featured</span>
+                      <span className="px-2 py-0.5 rounded-full bg-accent/10 text-accent-foreground text-xs">Featured</span>
                     ) : (
-                      <span className="px-2 py-0.5 rounded-full bg-gray-500/10 text-gray-600 text-xs">No</span>
+                      <span className="px-2 py-0.5 rounded-full bg-muted text-muted-foreground text-xs">No</span>
                     )}
                   </td>
                   <td className="px-4 py-3 text-right">

@@ -236,7 +236,7 @@ Mohon infonya lebih lanjut. Terima kasih!`
               Rp {Math.round(total).toLocaleString("id-ID")}
             </span>
           </div>
-          <div className="text-[11px] sm:text-xs text-muted-foreground space-y-0.5 sm:space-y-1">
+          <div className="text-xs sm:text-sm text-muted-foreground space-y-0.5 sm:space-y-1">
             <p>Base ({type}): Rp {basePrice.toLocaleString("id-ID")}</p>
             {pagePrice > 0 && <p>+ Halaman ({pages}): Rp {pagePrice.toLocaleString("id-ID")}</p>}
             {featurePrice > 0 && <p>+ Fitur: Rp {featurePrice.toLocaleString("id-ID")}</p>}
@@ -244,7 +244,7 @@ Mohon infonya lebih lanjut. Terima kasih!`
             {urgent && <p>+ Urgensi (15%): Rp {Math.round((subtotal + addonPrice) * 0.15).toLocaleString("id-ID")}</p>}
           </div>
 
-          <div className="text-[11px] sm:text-xs text-muted-foreground bg-muted/30 rounded-xl p-3 sm:p-4 space-y-1">
+          <div className="text-xs sm:text-sm text-muted-foreground bg-muted/30 rounded-xl p-3 sm:p-4 space-y-1">
             <p className="font-semibold text-foreground">
               <RefreshCw className="w-3 h-3 sm:w-3.5 sm:h-3.5 inline-block mr-1" />
               Biaya Bulanan (setelah website jadi):
@@ -258,7 +258,7 @@ Mohon infonya lebih lanjut. Terima kasih!`
             href={`https://wa.me/6285810289428?text=${waText}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full h-11 sm:h-12 rounded-xl bg-foreground text-background font-bold text-sm hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg"
+            className="flex items-center justify-center gap-2 w-full h-11 sm:h-12 rounded-xl bg-foreground text-background font-bold text-sm sm:text-base hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg"
           >
             <MessageCircle className="w-4 h-4" />
             Konsultasi via WhatsApp

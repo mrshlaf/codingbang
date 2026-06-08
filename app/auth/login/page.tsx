@@ -17,7 +17,7 @@ export default function LoginPage() {
 
         <form action={formAction} className="space-y-4">
           {state?.error && (
-            <p className="text-red-500 text-sm text-center bg-red-500/10 rounded-lg px-4 py-2">{state.error}</p>
+            <p className="text-accent-foreground text-sm text-center bg-accent/10 rounded-lg px-4 py-2">{state.error}</p>
           )}
 
           <div>

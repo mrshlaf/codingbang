@@ -4,9 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
-import comingSoonImage from "@/app/images/coming soon.png";
 import { cn } from "@/lib/utils";
+import { ScreenshotThumbnail } from "@/components/screenshot-thumbnail";
 import type { Project } from "@/lib/data";
 
 const containerVariants = {
@@ -40,7 +39,7 @@ export function PortfolioClient({ projects }: { projects: Project[] }) {
         transition={{ duration: 0.8 }}
       >
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground">Portofolio</h1>
-        <p className="text-xl text-muted-foreground max-w-2xl font-medium">
+        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl font-medium">
           Setiap proyek dibangun dari nol tanpa template. Ini adalah hasil kerja kami.
         </p>
       </motion.div>
@@ -57,7 +56,7 @@ export function PortfolioClient({ projects }: { projects: Project[] }) {
             key={cat}
             onClick={() => setActiveCategory(cat)}
             className={cn(
-              "px-5 py-2.5 rounded-full text-xs font-bold transition-all",
+              "px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all",
               activeCategory === cat
                 ? "bg-foreground text-background shadow-lg"
                 : "bg-muted/30 text-muted-foreground border border-border/40 hover:border-foreground/30"
@@ -81,16 +80,15 @@ export function PortfolioClient({ projects }: { projects: Project[] }) {
               href={`/portfolio/${project.slug}`}
               className="group flex flex-col gap-6 h-full"
             >
-              <div className="w-full aspect-[4/3] rounded-3xl bg-muted overflow-hidden relative border-2 border-border/40 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-foreground/30 group-hover:-translate-y-2">
-                <div className="absolute inset-0 bg-foreground/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                
+              <div className="w-full aspect-[4/3] rounded-3xl bg-foreground/5 overflow-hidden relative border-2 border-border/40 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-foreground/30 group-hover:-translate-y-2">
                 <div className="absolute inset-0 w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out">
-                  <Image 
-                    src={comingSoonImage} 
-                    alt={project.title} 
-                    fill 
-                    className="object-cover" 
-                  />
+                  {project.client_url ? (
+                    <ScreenshotThumbnail url={project.client_url} title={project.title} />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-foreground/5 to-foreground/10 flex items-center justify-center">
+                      <span className="text-muted-foreground text-sm font-medium">Preview</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* CATEGORY BADGE */}
@@ -104,7 +102,7 @@ export function PortfolioClient({ projects }: { projects: Project[] }) {
               </div>
 
               <div className="flex flex-col gap-3 px-2">
-                <h2 className="text-3xl font-bold text-foreground tracking-tight group-hover:text-muted-foreground transition-colors">
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight group-hover:text-muted-foreground transition-colors">
                   {project.title}
                 </h2>
                 <p className="text-lg text-muted-foreground line-clamp-2 leading-relaxed">
