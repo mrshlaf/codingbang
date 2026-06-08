@@ -121,7 +121,7 @@ export function ServicesClient() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="flex flex-col flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24 md:py-32 overflow-hidden">
+    <div className="flex flex-col flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-24 md:py-32 overflow-hidden">
 
       {/* HERO */}
       <motion.section

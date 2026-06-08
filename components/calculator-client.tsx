@@ -81,7 +81,7 @@ Mohon infonya lebih lanjut. Terima kasih!`
   );
 
   return (
-    <div className="flex flex-col flex-1 w-full max-w-3xl mx-auto px-4 sm:px-6 py-20 sm:py-24 md:py-32">
+    <div className="flex flex-col flex-1 w-full max-w-3xl mx-auto px-4 sm:px-6 py-24 md:py-32">
       <motion.div
         className="flex flex-col gap-2 mb-8 sm:mb-12"
         initial={{ opacity: 0, y: -10 }}

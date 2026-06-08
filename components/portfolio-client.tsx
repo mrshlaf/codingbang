@@ -78,7 +78,7 @@ export function PortfolioClient({ projects }: { projects: Project[] }) {
         {filtered.map((project) => (
           <motion.div key={project.id} variants={itemVariants} className="h-full">
             <Link 
-              href={`/portofolio/${project.slug}`}
+              href={`/portfolio/${project.slug}`}
               className="group flex flex-col gap-6 h-full"
             >
               <div className="w-full aspect-[4/3] rounded-3xl bg-muted overflow-hidden relative border-2 border-border/40 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-foreground/30 group-hover:-translate-y-2">

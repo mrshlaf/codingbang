@@ -19,11 +19,11 @@ export function PortfolioDetailClient({ project }: { project: Project }) {
       <ScrollProgress />
       <div className="flex flex-col flex-1 w-full max-w-5xl mx-auto px-6 py-24 md:py-32">
         <Link 
-          href="/portofolio" 
+          href="/portfolio" 
           className="group text-sm font-bold text-muted-foreground hover:text-foreground mb-12 flex items-center gap-2 transition-colors w-fit"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          Kembali ke Portofolio
+          Kembali ke Portfolio
         </Link>
 
         <motion.header 

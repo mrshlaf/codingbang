@@ -51,7 +51,7 @@ export function TeamClient({ members }: { members: TeamMember[] }) {
   const socialPlatforms = ["github", "linkedin", "instagram"] as const;
 
   return (
-    <div className="flex flex-col flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24 md:py-32 overflow-hidden">
+    <div className="flex flex-col flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-24 md:py-32 overflow-hidden">
       {/* HERO */}
       <motion.section
         className="flex flex-col items-center text-center gap-4 sm:gap-6 mb-12 sm:mb-16"
@@ -102,18 +102,6 @@ export function TeamClient({ members }: { members: TeamMember[] }) {
                 <p className="text-xs sm:text-[13px] text-muted-foreground leading-relaxed">
                   {member.bio}
                 </p>
-              )}
-              {member.skills.length > 0 && (
-                <div className="flex flex-wrap gap-1.5">
-                  {member.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full bg-muted text-muted-foreground"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
               )}
               {socialPlatforms.some((p) => member.social[p]) && (
                 <div className="flex items-center gap-2 mt-auto pt-3 border-t border-border/30">

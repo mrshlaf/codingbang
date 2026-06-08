@@ -61,10 +61,10 @@ export function HeroClient() {
             className="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto"
           >
             <Link
-              href="/layanan"
+              href="/services"
               className="group inline-flex items-center justify-center gap-2.5 h-14 px-8 rounded-full font-bold text-base bg-foreground text-background hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-foreground/10"
             >
-              Lihat Paket & Harga
+              Lihat Layanan Kami
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a

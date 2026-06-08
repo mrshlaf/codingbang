@@ -91,34 +91,31 @@ export default function Home() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.div variants={itemVariants} className="flex flex-col items-center text-center gap-3">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#4a6358] bg-[#eae3d8]/40 dark:bg-[#244238] px-3.5 py-1.5 rounded-full">Paket Layanan</span>
+            <span className="text-xs font-extrabold uppercase tracking-widest text-muted-foreground bg-muted/40 px-3.5 py-1.5 rounded-full">Layanan</span>
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">Pilih Sesuai Kebutuhan</h2>
-            <p className="text-muted-foreground max-w-2xl text-base font-medium">Harga transparan, konsultasi dulu, baru deal.</p>
+            <p className="text-muted-foreground max-w-2xl text-base font-medium">Konsultasi dulu, baru deal — tanpa tekanan.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 title: "Starter",
-                price: "Mulai Rp 1,5 JT",
-                desc: "Landing page 1–3 halaman. Cocok untuk UMKM, personal brand, atau promosi produk.",
+                desc: "Landing page 1–3 halaman. Website cepat dan profesional untuk memulai presence online.",
                 features: ["1–3 Halaman", "Mobile Responsive", "SEO Basic", "Tombol WhatsApp", "3–5 Hari Jadi"],
                 href: "/services",
                 highlight: false,
               },
               {
                 title: "Growth",
-                price: "Mulai Rp 4 JT",
-                desc: "Company profile multi-halaman. Cocok untuk bisnis yang butuh kredibilitas online.",
+                desc: "Company profile multi-halaman dengan fitur lengkap untuk membangun kredibilitas digital.",
                 features: ["5–10 Halaman", "CMS/Admin Opsional", "SEO Lengkap", "Blog Sederhana", "7–14 Hari Jadi"],
                 href: "/services",
                 highlight: true,
               },
               {
                 title: "Custom",
-                price: "Konsultasi",
-                desc: "Web app, toko online, atau sistem custom. Sesuai kebutuhan spesifik Anda.",
-                features: ["Tak Terbatas Halaman", "Full Custom Fitur", "Dashboard Admin", "Database Dinamis", "Sesuai Scope"],
+                desc: "Web app, toko online, atau sistem custom sesuai kebutuhan spesifik Anda.",
+                features: ["Tak Terbatas", "Full Custom Fitur", "Dashboard Admin", "Database Dinamis", "Sesuai Scope"],
                 href: "/calculator",
                 highlight: false,
               },
@@ -142,7 +139,6 @@ export default function Home() {
                     <span className="text-[10px] font-bold uppercase tracking-widest bg-background/20 text-background px-3 py-1 rounded-full">Terpopuler</span>
                   )}
                 </div>
-                <div className={cn("text-3xl font-extrabold tracking-tight", pkg.highlight ? "text-background/90" : "text-foreground")}>{pkg.price}</div>
                 <p className={cn("text-sm leading-relaxed font-medium", pkg.highlight ? "text-background/80" : "text-muted-foreground")}>{pkg.desc}</p>
                 <ul className="flex flex-col gap-3 mt-2">
                   {pkg.features.map((f, fi) => (
@@ -161,7 +157,7 @@ export default function Home() {
                       : "bg-foreground text-background hover:bg-foreground/90"
                   )}
                 >
-                  Lihat Detail
+                  Konsultasi Sekarang
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </motion.div>
@@ -221,7 +217,7 @@ export default function Home() {
           >
             <Link
               href="/portfolio"
-              className="inline-flex items-center justify-center h-12 px-8 rounded-full font-bold text-base transition-all duration-300 bg-transparent text-foreground border border-border hover:bg-[#1C352D] hover:text-[#F8F0E5] hover:border-[#1C352D]"
+              className="inline-flex items-center justify-center h-12 px-8 rounded-full font-bold text-base transition-all duration-300 bg-transparent text-foreground border border-border hover:bg-foreground hover:text-background hover:border-foreground"
             >
               Lihat Semua Karya
             </Link>
@@ -239,7 +235,7 @@ export default function Home() {
           transition={{ duration: 0.6 }}
         >
           <div className="flex flex-col items-center text-center gap-3 mb-16">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#4a6358] bg-[#eae3d8]/40 dark:bg-[#244238] px-3.5 py-1.5 rounded-full">Testimonial</span>
+            <span className="text-xs font-extrabold uppercase tracking-widest text-muted-foreground bg-muted/40 px-3.5 py-1.5 rounded-full">Testimonial</span>
             <h2 className="text-4xl font-extrabold tracking-tight text-foreground">Kata Mereka</h2>
           </div>
 
@@ -283,7 +279,7 @@ export default function Home() {
           >
             <Link
               href="/reviews"
-              className="inline-flex items-center justify-center h-12 px-8 rounded-full font-bold text-base transition-all duration-300 bg-transparent text-foreground border border-border hover:bg-[#1C352D] hover:text-[#F8F0E5] hover:border-[#1C352D]"
+              className="inline-flex items-center justify-center h-12 px-8 rounded-full font-bold text-base transition-all duration-300 bg-transparent text-foreground border border-border hover:bg-foreground hover:text-background hover:border-foreground"
             >
               Lihat Semua Ulasan
             </Link>
@@ -292,7 +288,7 @@ export default function Home() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="w-full py-24 px-6 border-t border-[#2e4f44]/30 bg-[#1C352D] text-[#F8F0E5] relative overflow-hidden">
+      <section className="w-full py-24 px-6 border-t border-border bg-foreground text-background relative overflow-hidden">
         <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
         
         <motion.div 
@@ -303,7 +299,7 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">Siap Punya Website Impian?</h2>
-          <p className="text-lg text-[#F8F0E5]/80 max-w-2xl font-medium leading-relaxed">
+          <p className="text-lg text-background/80 max-w-2xl font-medium leading-relaxed">
             Konsultasi gratis. Tanpa tekanan. Ceritakan kebutuhan Anda, kami siap membantu.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
@@ -311,16 +307,16 @@ export default function Home() {
               href="https://wa.me/6285810289428?text=Halo%20CODING%20BANG%2C%20saya%20mau%20konsultasi%20soal%20website"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2.5 h-14 px-10 rounded-full font-bold text-lg bg-[#F8F0E5] text-[#1C352D] hover:scale-105 active:scale-95 transition-all duration-300 shadow-2xl"
+              className="group inline-flex items-center justify-center gap-2.5 h-14 px-10 rounded-full font-bold text-lg bg-background text-foreground hover:scale-105 active:scale-95 transition-all duration-300 shadow-2xl"
             >
               <MessageCircle className="w-5 h-5" />
               <span>WhatsApp Sekarang</span>
             </a>
             <Link
               href="/calculator"
-              className="inline-flex items-center justify-center gap-2 h-14 px-10 rounded-full font-bold text-lg border-2 border-[#F8F0E5]/30 text-[#F8F0E5] hover:bg-[#F8F0E5]/10 transition-all"
+              className="inline-flex items-center justify-center gap-2 h-14 px-10 rounded-full font-bold text-lg border-2 border-background/30 text-background hover:bg-background/10 transition-all"
             >
-              Hitung Estimasi Harga
+              Hitung Estimasi
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
