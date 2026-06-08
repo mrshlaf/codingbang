@@ -80,7 +80,7 @@ export function PortfolioClient({ projects }: { projects: Project[] }) {
               href={`/portfolio/${project.slug}`}
               className="group flex flex-col gap-6 h-full"
             >
-              <div className="w-full aspect-[4/3] rounded-3xl bg-foreground/5 overflow-hidden relative border-2 border-border/40 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-foreground/30 group-hover:-translate-y-2">
+              <div className="w-full aspect-video rounded-3xl bg-foreground/5 overflow-hidden relative border-2 border-border/40 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-foreground/30 group-hover:-translate-y-2">
                 <div className="absolute inset-0 w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out">
                   {project.client_url ? (
                     <ScreenshotThumbnail url={project.client_url} title={project.title} />

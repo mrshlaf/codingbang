@@ -18,7 +18,7 @@ export function PortfolioDetailClient({ project }: { project: Project }) {
   return (
     <>
       <ScrollProgress />
-      <div className="flex flex-col flex-1 w-full max-w-5xl mx-auto px-6 py-24 md:py-32">
+      <div className="flex flex-col flex-1 w-full max-w-6xl mx-auto px-6 py-24 md:py-32">
         <Link 
           href="/portfolio" 
           className="group text-sm font-bold text-muted-foreground hover:text-foreground mb-12 flex items-center gap-2 transition-colors w-fit"
@@ -62,9 +62,64 @@ export function PortfolioDetailClient({ project }: { project: Project }) {
           </div>
         </motion.header>
 
-        {/* LIVE WEBSITE PREVIEW — Laptop Mockup with Auto-Scroll */}
+        {/* LIVE WEBSITE PREVIEW */}
         {hasLink && (
-          <LaptopPreview url={project.client_url} title={project.title} />
+          <div className="w-full mb-24">
+            {/* Browser Chrome Frame */}
+            <div className="rounded-[1.5rem] overflow-hidden border-2 border-border/40 shadow-2xl bg-card">
+              {/* Browser toolbar */}
+              <div className="flex items-center gap-2 px-5 py-3.5 bg-card border-b border-border/40">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-400" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                  <div className="w-3 h-3 rounded-full bg-green-400" />
+                </div>
+                <div className="flex-1 flex justify-center">
+                  <div className="bg-muted/50 text-muted-foreground text-xs font-medium px-4 py-1.5 rounded-full truncate max-w-[80%]">
+                    {project.client_url}
+                  </div>
+                </div>
+                <div className="w-6" />
+              </div>
+              {/* Iframe */}
+              <div className="relative w-full aspect-video max-h-[80vh] overflow-y-auto">
+                {iframeLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-muted/20 z-10">
+                    <div className="flex flex-col items-center gap-3">
+                      <svg className="animate-spin w-8 h-8 text-foreground/40" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                      <span className="text-sm text-muted-foreground">Memuat website...</span>
+                    </div>
+                  </div>
+                )}
+                {iframeError ? (
+                  <div className="absolute inset-0 flex items-center justify-center bg-muted/20 z-10">
+                    <div className="flex flex-col items-center gap-3 text-center px-6">
+                      <p className="text-sm text-muted-foreground">Website tidak dapat ditampilkan di sini.</p>
+                      <a 
+                        href={project.client_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-bold text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors"
+                      >
+                        Buka di tab baru &rarr;
+                      </a>
+                    </div>
+                  </div>
+                ) : null}
+                <iframe
+                  src={project.client_url}
+                  className="w-full h-full bg-white"
+                  onLoad={() => setIframeLoading(false)}
+                  onError={() => { setIframeLoading(false); setIframeError(true); }}
+                  sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                  title={project.title}
+                />
+              </div>
+            </div>
+          </div>
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-16 lg:gap-24">

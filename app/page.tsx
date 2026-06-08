@@ -188,7 +188,7 @@ export default function Home() {
           >
             {featuredProjects.map((project) => (
               <motion.div key={project.id} variants={itemVariants}>
-                <Link href={`/portfolio/${project.slug}`} className="group relative w-full aspect-[4/3] bg-card rounded-3xl overflow-hidden border border-border/40 block shadow-sm hover:shadow-2xl hover:border-foreground/30 transition-all duration-500">
+                <Link href={`/portfolio/${project.slug}`} className="group relative w-full aspect-video bg-card rounded-3xl overflow-hidden border border-border/40 block shadow-sm hover:shadow-2xl hover:border-foreground/30 transition-all duration-500">
                   <div className="absolute inset-0 w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out">
                     {project.client_url ? (
                       <ScreenshotThumbnail url={project.client_url} title={project.title} />
