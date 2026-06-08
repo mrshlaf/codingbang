@@ -1,13 +1,12 @@
-import { getAllProjects } from "@/lib/portfolio";
+import { getProjects } from "@/lib/data";
 import { PortfolioClient } from "@/components/portfolio-client";
 
 export const metadata = {
   title: "Portfolio | CODING BANG",
-  description: "A showcase of our premium web development projects.",
+  description: "Lihat karya terbaik kami — dari landing page hingga web app kompleks.",
 };
 
-export default function PortfolioIndex() {
-  const projects = getAllProjects();
-
+export default function PortfolioPage() {
+  const projects = getProjects();
   return <PortfolioClient projects={projects} />;
 }

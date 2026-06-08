@@ -1,8 +1,8 @@
 import { ServicesClient } from "@/components/services-client";
 
 export const metadata = {
-  title: "Services | CODING BANG",
-  description: "Premium web development services: Landing Pages, Business Websites, and Web Apps.",
+  title: "Paket & Harga | CODING BANG",
+  description: "Paket pembuatan website dengan harga transparan. Landing page mulai Rp 1,5 JT, company profile mulai Rp 4 JT, dan custom web.",
 };
 
 export default function ServicesPage() {

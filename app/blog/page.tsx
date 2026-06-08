@@ -1,11 +1,13 @@
 import { BlogClient } from "@/components/blog-client";
+import { getAllPosts } from "@/lib/mdx";
 
 export const metadata = {
   title: "Blog | CODING BANG",
-  description: "Insights, tutorials, and perspectives from CODING BANG on Instagram.",
+  description: "Artikel dan wawasan seputar web development, performa, dan digital bisnis.",
 };
 
-// SERVER COMPONENT
 export default function BlogIndex() {
-  return <BlogClient />;
+  const posts = getAllPosts();
+
+  return <BlogClient posts={posts} />;
 }

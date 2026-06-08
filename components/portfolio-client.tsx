@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight, Code2, AlertTriangle } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import comingSoonImage from "@/app/images/coming soon.png";
-import type { Project } from "@/lib/portfolio";
+import { cn } from "@/lib/utils";
+import type { Project } from "@/lib/data";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -20,19 +22,50 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
+const CATEGORIES = ["Semua", "E-Commerce", "Web App", "Landing Page", "Company Profile"];
+
 export function PortfolioClient({ projects }: { projects: Project[] }) {
+  const [activeCategory, setActiveCategory] = useState("Semua");
+
+  const filtered = activeCategory === "Semua"
+    ? projects
+    : projects.filter(p => p.category === activeCategory);
+
   return (
     <div className="flex flex-col flex-1 w-full max-w-7xl mx-auto px-6 py-24 md:py-32">
       <motion.div 
-        className="flex flex-col items-center text-center gap-6 mb-20"
+        className="flex flex-col items-center text-center gap-6 mb-12"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground">Selected Works</h1>
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground">Portofolio</h1>
         <p className="text-xl text-muted-foreground max-w-2xl font-medium">
-          A glimpse into the digital experiences we've engineered. Every project is built from scratch without templates.
+          Setiap proyek dibangun dari nol tanpa template. Ini adalah hasil kerja kami.
         </p>
+      </motion.div>
+
+      {/* FILTER */}
+      <motion.div 
+        className="flex flex-wrap justify-center gap-3 mb-16"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+      >
+        {CATEGORIES.map(cat => (
+          <button
+            key={cat}
+            onClick={() => setActiveCategory(cat)}
+            className={cn(
+              "px-5 py-2.5 rounded-full text-xs font-bold transition-all",
+              activeCategory === cat
+                ? "bg-foreground text-background shadow-lg"
+                : "bg-muted/30 text-muted-foreground border border-border/40 hover:border-foreground/30"
+            )}
+          >
+            {cat}
+          </button>
+        ))}
       </motion.div>
 
       <motion.div 
@@ -40,17 +73,17 @@ export function PortfolioClient({ projects }: { projects: Project[] }) {
         variants={containerVariants}
         initial="hidden"
         animate="show"
+        key={activeCategory}
       >
-        {projects.map((project) => (
+        {filtered.map((project) => (
           <motion.div key={project.id} variants={itemVariants} className="h-full">
             <Link 
-              href={`/portfolio/${project.slug}`}
+              href={`/portofolio/${project.slug}`}
               className="group flex flex-col gap-6 h-full"
             >
               <div className="w-full aspect-[4/3] rounded-3xl bg-muted overflow-hidden relative border-2 border-border/40 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:border-foreground/30 group-hover:-translate-y-2">
                 <div className="absolute inset-0 bg-foreground/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
                 
-                {/* Simulated Image Placeholder */}
                 <div className="absolute inset-0 w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out">
                   <Image 
                     src={comingSoonImage} 
@@ -60,13 +93,11 @@ export function PortfolioClient({ projects }: { projects: Project[] }) {
                   />
                 </div>
 
-                {project.is_mock && (
-                  <div className="absolute top-5 right-5 px-4 py-2 bg-background/90 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-widest text-muted-foreground border border-border/50 z-20 flex items-center gap-2">
-                    <AlertTriangle className="w-3 h-3" />
-                    Concept
-                  </div>
-                )}
-                
+                {/* CATEGORY BADGE */}
+                <div className="absolute top-5 left-5 px-3 py-1.5 bg-background/90 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-wider text-foreground border border-border/50 z-20">
+                  {project.category}
+                </div>
+
                 <div className="absolute bottom-5 right-5 w-12 h-12 bg-background rounded-full flex items-center justify-center text-foreground opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 z-20 shadow-xl">
                   <ArrowUpRight className="w-6 h-6" />
                 </div>
@@ -91,6 +122,12 @@ export function PortfolioClient({ projects }: { projects: Project[] }) {
           </motion.div>
         ))}
       </motion.div>
+
+      {filtered.length === 0 && (
+        <div className="text-center py-20">
+          <p className="text-muted-foreground text-lg">Belum ada proyek di kategori ini.</p>
+        </div>
+      )}
     </div>
   );
 }

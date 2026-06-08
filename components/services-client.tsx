@@ -3,7 +3,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Check, ArrowRight, HelpCircle, ChevronDown } from "lucide-react";
+import {
+  Check,
+  HelpCircle,
+  ChevronDown,
+  Calculator,
+  MessageCircle,
+  Sparkles,
+  BarChart3,
+  MonitorSmartphone,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const containerVariants = {
@@ -19,60 +28,92 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-const SERVICES = [
+const PACKAGES = [
   {
-    title: "Landing Page (1 Halaman)",
-    target: "Untuk Usaha Baru & Promosi",
-    desc: "Situs satu halaman super cepat untuk profil usaha, promosi produk, atau brosur online agar pelanggan langsung terhubung.",
-    features: ["Desain Kustom Eksklusif", "Tampilan Mobile Responsive", "Tombol WhatsApp Melayang", "SEO Google Basic"],
+    title: "Starter",
+    target: "Cocok untuk UMKM & Personal Brand",
+    desc: "Landing page 1–3 halaman. Website cepat dan profesional untuk memulai presence online.",
+    features: [
+      "1–3 Halaman",
+      "Desain Kustom Eksklusif",
+      "Mobile Responsive",
+      "SEO Google Basic",
+      "Tombol WhatsApp Melayang",
+      "Hosting Cepat (Vercel/VPS)",
+      "Domain .my.id 1 Tahun",
+      "3–5 Hari Jadi",
+      "Revisi 2x",
+      "Gratis Konsultasi",
+    ],
+    highlight: false,
+    icon: MonitorSmartphone,
   },
   {
-    title: "Website Profil Perusahaan",
-    target: "Untuk Perusahaan & Instansi",
-    desc: "Situs multi-halaman lengkap untuk membangun reputasi profesional dan memamerkan layanan bisnis Anda secara detail.",
-    features: ["Multi-halaman Lengkap", "Halaman Galeri & Kontak", "Hosting Setup Gratis", "Optimasi Kecepatan Ekstrim"],
+    title: "Growth",
+    target: "Cocok untuk Perusahaan & Bisnis",
+    desc: "Company profile multi-halaman dengan fitur lengkap untuk membangun kredibilitas digital.",
+    features: [
+      "5–10 Halaman",
+      "Desain Kustom Eksklusif",
+      "Mobile Responsive",
+      "SEO Lengkap",
+      "CMS/Admin Panel",
+      "Blog Sederhana",
+      "Hosting VPS Premium",
+      "Domain .com 1 Tahun",
+      "7–14 Hari Jadi",
+      "Revisi 5x",
+      "Bantuan Setup Domain & Email",
+    ],
     highlight: true,
+    icon: BarChart3,
   },
   {
-    title: "Portofolio Kreatif",
-    target: "Untuk Desainer & Kreator",
-    desc: "Situs etalase karya interaktif premium untuk menonjolkan kreativitas Anda bagi klien dan pemberi kerja.",
-    features: ["Galeri Foto/Video Interaktif", "Desain Eksklusif Modern", "Sambung Domain Kustom", "Hubungan Sosial Media"],
+    title: "Custom",
+    target: "Cocok untuk Sistem & Aplikasi",
+    desc: "Web app, toko online, dashboard, atau sistem custom sesuai kebutuhan spesifik Anda.",
+    features: [
+      "Halaman & Fitur Tak Terbatas",
+      "Full Custom Development",
+      "Dashboard Admin",
+      "Database Dinamis (PostgreSQL)",
+      "Sistem Login & Roles",
+      "Integrasi API Pihak Ketiga",
+      "Hosting VPS Premium",
+      "Domain Pilihan",
+      "Sesuai Scope",
+      "Revisi Unlimited",
+      "Maintenance Bulanan",
+    ],
+    highlight: false,
+    icon: Sparkles,
   },
-  {
-    title: "Toko Online (E-Commerce)",
-    target: "Untuk Penjualan Produk",
-    desc: "Toko digital mandiri lengkap dengan keranjang belanja dan checkout otomatis untuk memudahkan pelanggan bertransaksi.",
-    features: ["Katalog & Detail Produk", "Sistem Keranjang Belanja", "Integrasi Ongkos Kirim", "Gerbang Pembayaran Bank/QRIS"],
-  },
-  {
-    title: "Aplikasi & Member Dashboard",
-    target: "Untuk Sistem & Operasional",
-    desc: "Sistem aplikasi berbasis web kustom lengkap dengan sistem login member khusus, pengelolaan database, dan manajemen internal.",
-    features: ["Sistem Login Member", "Halaman Dashboard Khusus", "Penyimpanan Database Dinamis", "Manajemen Konten & Hak Akses"],
-  },
-];
-
-const PROCESS = [
-  { step: "01", title: "Konsultasi Cepat", desc: "Diskusikan kebutuhan proyek Anda secara santai via WhatsApp atau Email." },
-  { step: "02", title: "Estimasi Transparan", desc: "Kami berikan rancangan cetak biru spesifikasi fitur dan rincian harga terbaik." },
-  { step: "03", title: "Tahap Produksi", desc: "Tim pengembang kami langsung merakit website Anda dengan standar performa tertinggi." },
-  { step: "04", title: "Revisi & Masukan", desc: "Proses peninjauan bersama hingga tampilan dan fungsi website benar-benar sempurna." },
-  { step: "05", title: "Peluncuran Live", desc: "Penyetelan server cloud gratis, sambung domain, dan website resmi mengudara!" },
 ];
 
 const FAQS = [
-  { 
-    q: "Kenapa biayanya bisa sangat terjangkau?", 
-    a: "Kami memotong biaya overhead agensi besar yang tidak perlu. Dengan arsitektur modern seperti Vercel dan Supabase, kami dapat memangkas biaya server bulanan menjadi sangat murah bahkan gratis di awal, tanpa mengorbankan kualitas sama sekali." 
+  {
+    q: "Bagaimana cara memulainya?",
+    a: "Cukup hubungi kami via WhatsApp atau isi form konsultasi. Kami akan diskusi santai dulu tentang kebutuhan Anda, lalu kirimkan proposal lengkap tanpa tekanan.",
   },
-  { 
-    q: "Berapa lama proses pembuatan website?", 
-    a: "Untuk Landing Page dan Company Profile sederhana biasanya selesai dalam 3 sampai 7 hari. Untuk sistem kustom yang lebih kompleks seperti E-Commerce atau Dashboard Member membutuhkan waktu sekitar 2 hingga 3 minggu." 
+  {
+    q: "Berapa lama proses pembuatan website?",
+    a: "Tergantung kompleksitas. Landing page sederhana bisa 3–5 hari. Company profile 7–14 hari. Untuk web app atau custom, umumnya 2–6 minggu. Timeline pasti akan kami infokan di awal.",
   },
-  { 
-    q: "Apakah saya bisa melakukan revisi?", 
-    a: "Tentu saja. Kami mengutamakan kepuasan Anda. Kami menyediakan sesi revisi terstruktur agar hasil akhir website benar-benar sesuai dengan ekspektasi dan citra brand Anda." 
+  {
+    q: "Apakah ada biaya maintenance setelah website jadi?",
+    a: "Tidak wajib, tapi kami sarankan paket maintenance bulanan (mulai Rp 200rb/bln) untuk backup, update keamanan, dan monitoring performa. Biaya hosting & domain terpisah sesuai usage.",
+  },
+  {
+    q: "Apakah hosting dan domain sudah termasuk?",
+    a: "Untuk paket Starter dan Growth, hosting dan domain 1 tahun sudah include. Untuk paket Custom, menyesuaikan kebutuhan — kami bantu pilihkan yang paling efisien.",
+  },
+  {
+    q: "Bagaimana kalau saya tidak puas dengan hasilnya?",
+    a: "Kami memberikan revisi sesuai paket. Tujuan kami adalah membuat Anda puas — kami akan iterasi sampai hasilnya sesuai ekspektasi. Untuk Custom, revisi tidak terbatas.",
+  },
+  {
+    q: "Teknologi apa yang digunakan?",
+    a: "Kami menggunakan Next.js, Tailwind CSS, PostgreSQL, dan Vercel — stack modern yang cepat, aman, dan mudah dikembangkan ke depannya.",
   },
 ];
 
@@ -80,136 +121,226 @@ export function ServicesClient() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="flex flex-col flex-1 w-full max-w-6xl mx-auto px-6 py-24 md:py-32 overflow-hidden">
-      
+    <div className="flex flex-col flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24 md:py-32 overflow-hidden">
+
       {/* HERO */}
-      <motion.section 
-        className="flex flex-col items-center text-center gap-6 mb-24"
+      <motion.section
+        className="flex flex-col items-center text-center gap-4 sm:gap-6 mb-16 sm:mb-24"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1] max-w-4xl">
-          Website yang Berdampak. <br />
-          <span className="text-muted-foreground font-serif italic font-light">Bukan sekadar tampilan visual.</span>
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1] max-w-4xl">
+          Layanan Kami
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl font-medium">
-          Kami merakit setiap proyek dari baris kode nol untuk memastikan performa yang luar biasa cepat, keamanan maksimal, dan pengalaman pengguna yang mulus.
+        <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl font-medium">
+          Dari landing page sederhana hingga sistem kompleks — kami bangun
+          solusi digital yang tepat untuk kebutuhan Anda.
         </p>
       </motion.section>
 
-      {/* SERVICES GRID */}
-      <motion.section 
-        className="mb-32"
+      {/* CALCULATOR HIGHLIGHT */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="flex flex-col items-center text-center gap-6 sm:gap-8 p-8 sm:p-12 md:p-16 rounded-[2rem] sm:rounded-[3rem] bg-gradient-to-br from-foreground to-foreground/90 text-background mb-16 sm:mb-24 relative overflow-hidden"
+      >
+        <div className="absolute top-0 right-0 w-64 h-64 bg-background/5 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/3" />
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-background/5 rounded-full blur-[50px] translate-y-1/3 -translate-x-1/4" />
+
+        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-background/10 border border-background/20 flex items-center justify-center relative z-10">
+          <Calculator className="w-7 h-7 sm:w-8 sm:h-8" />
+        </div>
+
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight relative z-10">
+          Coba Kalkulator Harga
+        </h2>
+        <p className="text-background/80 text-sm sm:text-base md:text-lg max-w-xl relative z-10 font-medium">
+          Dapatkan estimasi biaya secara instan. Pilih jenis website, fitur, dan
+          kebutuhan Anda — hasilnya langsung terlihat.
+        </p>
+
+        <Link
+          href="/calculator"
+          className="group relative z-10 mt-2 inline-flex items-center justify-center gap-2.5 h-11 sm:h-12 px-6 sm:px-8 rounded-full font-bold text-sm sm:text-base bg-background text-foreground hover:scale-105 active:scale-95 transition-all duration-300 shadow-2xl"
+        >
+          <Calculator className="w-4 h-4 sm:w-5 sm:h-5" />
+          Hitung Estimasi Sekarang
+        </Link>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 w-full max-w-2xl relative z-10 mt-4 sm:mt-8 pt-6 sm:pt-8 border-t border-background/10">
+          {[
+            { label: "Bandingkan Paket", desc: "Lihat fitur tiap paket" },
+            { label: "Fitur Tambahan", desc: "SEO, Admin Panel, dll" },
+            { label: "Estimasi Total", desc: "Harga langsung muncul" },
+          ].map((item, idx) => (
+            <div key={idx} className="text-center">
+              <p className="font-bold text-sm sm:text-base">{item.label}</p>
+              <p className="text-background/60 text-xs sm:text-sm mt-1">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* PACKAGES GRID */}
+      <motion.section
+        className="mb-20 sm:mb-32"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {SERVICES.map((service, idx) => (
-            <motion.div 
-              key={idx} 
+        <motion.h2
+          variants={itemVariants}
+          className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-4 text-center"
+        >
+          Pilih Paket yang Sesuai
+        </motion.h2>
+        <motion.p
+          variants={itemVariants}
+          className="text-muted-foreground text-center max-w-xl mx-auto mb-10 sm:mb-14 text-sm sm:text-base"
+        >
+          Setiap paket bisa disesuaikan — konsultasi dulu, kami bantu tentukan yang terbaik.
+        </motion.p>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+          {PACKAGES.map((pkg, idx) => (
+            <motion.div
+              key={idx}
               variants={itemVariants}
               className={cn(
-                "flex flex-col gap-6 p-10 rounded-[2.5rem] border transition-all duration-500 relative overflow-hidden group",
-                service.highlight 
-                  ? "border-foreground bg-foreground text-background shadow-2xl hover:scale-[1.02]" 
+                "flex flex-col gap-5 sm:gap-6 p-6 sm:p-8 md:p-10 rounded-[1.5rem] sm:rounded-[2.5rem] border transition-all duration-500 relative overflow-hidden group",
+                pkg.highlight
+                  ? "border-foreground bg-foreground text-background shadow-2xl hover:scale-[1.02]"
                   : "border-border/60 bg-card text-foreground shadow-sm hover:shadow-xl hover:border-foreground/30 hover:scale-[1.02]"
               )}
             >
-              {service.highlight && (
-                <div className="absolute top-0 right-0 w-64 h-64 bg-background/5 rounded-full blur-[50px] -translate-y-1/2 translate-x-1/3" />
+              {pkg.highlight && (
+                <div className="absolute top-0 right-0 w-48 sm:w-64 h-48 sm:h-64 bg-background/5 rounded-full blur-[50px] -translate-y-1/2 translate-x-1/3" />
               )}
-              
-              <div>
-                <p className={cn("text-xs font-bold uppercase tracking-widest mb-3", service.highlight ? "text-background/60" : "text-muted-foreground")}>
-                  {service.target}
-                </p>
-                <h3 className="text-3xl font-bold tracking-tight">{service.title}</h3>
+
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className={cn("text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1.5", pkg.highlight ? "text-background/60" : "text-muted-foreground")}>
+                    {pkg.target}
+                  </p>
+                  <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">{pkg.title}</h3>
+                </div>
+                <div className={cn("w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0", pkg.highlight ? "bg-background/10" : "bg-muted")}>
+                  <pkg.icon className={cn("w-5 h-5 sm:w-6 sm:h-6", pkg.highlight ? "text-background" : "text-foreground")} />
+                </div>
               </div>
-              <p className={cn("text-base leading-relaxed font-medium", service.highlight ? "text-background/80" : "text-muted-foreground")}>
-                {service.desc}
+
+              {pkg.highlight && (
+                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest bg-background/20 text-background px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full w-fit">
+                  Paling Populer
+                </span>
+              )}
+
+              <p className={cn("text-sm sm:text-base leading-relaxed font-medium", pkg.highlight ? "text-background/80" : "text-muted-foreground")}>
+                {pkg.desc}
               </p>
-              
-              <ul className="flex flex-col gap-4 mt-6 mb-10">
-                {service.features.map((feat, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm font-bold">
-                    <div className={cn("w-5 h-5 rounded-full flex items-center justify-center", service.highlight ? "bg-background text-foreground" : "bg-muted text-foreground")}>
-                      <Check className="w-3.5 h-3.5 stroke-[3]" />
+
+              <ul className="flex flex-col gap-2 sm:gap-3 mt-2 mb-4 sm:mb-8">
+                {pkg.features.map((feat, i) => (
+                  <li key={i} className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-medium">
+                    <div className={cn("w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center flex-shrink-0", pkg.highlight ? "bg-background/20" : "bg-muted")}>
+                      <Check className={cn("w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 stroke-[3]", pkg.highlight ? "text-background" : "text-foreground")} />
                     </div>
                     {feat}
                   </li>
                 ))}
               </ul>
-              
-              <Link
-                href="/contact"
-                className={cn(
-                  "group/btn mt-auto inline-flex items-center justify-center gap-2 h-14 px-8 rounded-full font-bold text-base transition-all duration-300 shadow-lg",
-                  service.highlight 
-                    ? "bg-background text-foreground hover:bg-background/90 shadow-background/10" 
-                    : "bg-foreground text-background hover:bg-foreground/90 shadow-foreground/10"
-                )}
-              >
-                Mulai Konfigurasi
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </Link>
+
+              {pkg.title === "Custom" ? (
+                <a
+                  href="https://wa.me/6285810289428?text=Halo%20CODING%20BANG%2C%20saya%20tertarik%20dengan%20paket%20Custom.%20Mohon%20infonya%20lebih%20lanjut."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "group/btn mt-auto inline-flex items-center justify-center gap-2 h-11 sm:h-12 px-6 sm:px-8 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 shadow-lg",
+                    pkg.highlight
+                      ? "bg-background text-foreground hover:bg-background/90 shadow-background/10"
+                      : "bg-foreground text-background hover:bg-foreground/90 shadow-foreground/10"
+                  )}
+                >
+                  <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  Konsultasi Sekarang
+                </a>
+              ) : (
+                <Link
+                  href="/calculator"
+                  className={cn(
+                    "group/btn mt-auto inline-flex items-center justify-center gap-2 h-11 sm:h-12 px-6 sm:px-8 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 shadow-lg",
+                    pkg.highlight
+                      ? "bg-background text-foreground hover:bg-background/90 shadow-background/10"
+                      : "bg-foreground text-background hover:bg-foreground/90 shadow-foreground/10"
+                  )}
+                >
+                  <Calculator className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  Hitung Estimasi
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>
       </motion.section>
 
-      {/* PROCESS */}
-      <motion.section 
-        className="mb-32 bg-muted/20 border border-border/40 p-12 md:p-20 rounded-[3rem]"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
+      {/* CTA KONSULTASI */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="flex flex-col items-center text-center gap-4 sm:gap-6 p-8 sm:p-12 md:p-16 rounded-[2rem] sm:rounded-[3rem] bg-muted/30 border border-border/40 mb-16 sm:mb-24"
       >
-        <motion.h2 variants={itemVariants} className="text-4xl font-bold tracking-tight mb-16 text-center">
-          Alur Kerja Kami
-        </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
-          {PROCESS.map((proc, idx) => (
-            <motion.div key={idx} variants={itemVariants} className="flex flex-col gap-4 relative z-10">
-              <div className="text-5xl font-extrabold text-muted-foreground/20 font-serif italic">{proc.step}</div>
-              <h3 className="text-xl font-bold tracking-tight text-foreground">{proc.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed font-medium">{proc.desc}</p>
-            </motion.div>
-          ))}
-        </div>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+          Bingung mau pilih yang mana?
+        </h2>
+        <p className="text-muted-foreground max-w-lg text-sm sm:text-base md:text-lg font-medium">
+          Ceritakan kebutuhan Anda, kami rekomendasikan paket yang paling sesuai — gratis.
+        </p>
+        <a
+          href="https://wa.me/6285810289428?text=Halo%20CODING%20BANG%2C%20saya%20mau%20konsultasi%20soal%20website"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center justify-center gap-2.5 h-11 sm:h-12 px-6 sm:px-8 rounded-full font-bold text-sm sm:text-base bg-foreground text-background hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl"
+        >
+          <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+          Konsultasi Sekarang
+        </a>
       </motion.section>
 
       {/* FAQ ACCORDION */}
-      <motion.section 
-        className="max-w-4xl mx-auto w-full mb-12"
+      <motion.section
+        className="max-w-4xl mx-auto w-full mb-8 sm:mb-12"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-4xl font-bold tracking-tight mb-16 text-center flex items-center justify-center gap-3">
-          <HelpCircle className="w-10 h-10 text-muted-foreground/80" />
-          Frequently Asked Questions
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-10 sm:mb-16 text-center flex items-center justify-center gap-2 sm:gap-3">
+          <HelpCircle className="w-8 h-8 sm:w-10 sm:h-10 text-muted-foreground/80" />
+          Pertanyaan Umum
         </h2>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3 sm:gap-4">
           {FAQS.map((faq, idx) => {
             const isOpen = openFaq === idx;
             return (
-              <div 
-                key={idx} 
-                className="border border-border/60 bg-card rounded-3xl overflow-hidden transition-all duration-300 shadow-sm"
+              <div
+                key={idx}
+                className="border border-border/60 bg-card rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-300 shadow-sm"
               >
                 <button
                   onClick={() => setOpenFaq(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between p-6 md:p-8 text-left text-foreground hover:bg-muted/10 transition-colors"
+                  className="w-full flex items-center justify-between p-4 sm:p-6 md:p-8 text-left text-foreground hover:bg-muted/10 transition-colors"
                 >
-                  <span className="text-xl font-bold tracking-tight pr-6">{faq.q}</span>
-                  <ChevronDown className={cn("w-6 h-6 text-muted-foreground flex-shrink-0 transition-transform duration-300", isOpen && "rotate-180")} />
+                  <span className="text-base sm:text-lg md:text-xl font-bold tracking-tight pr-4 sm:pr-6">
+                    {faq.q}
+                  </span>
+                  <ChevronDown className={cn("w-5 h-5 sm:w-6 sm:h-6 text-muted-foreground flex-shrink-0 transition-transform duration-300", isOpen && "rotate-180")} />
                 </button>
-                
+
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
@@ -218,7 +349,7 @@ export function ServicesClient() {
                       exit={{ height: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="px-6 pb-6 md:px-8 md:pb-8 text-muted-foreground font-medium text-lg leading-relaxed border-t border-border/30 pt-4">
+                      <div className="px-4 pb-4 sm:px-6 md:px-8 sm:pb-6 md:pb-8 text-muted-foreground font-medium text-sm sm:text-base leading-relaxed border-t border-border/30 pt-3 sm:pt-4">
                         {faq.a}
                       </div>
                     </motion.div>

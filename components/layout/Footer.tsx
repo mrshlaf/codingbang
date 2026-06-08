@@ -37,26 +37,26 @@ export function Footer() {
             </div>
           </div>
 
-          {/* QUICK LINKS */}
+          {/* PERUSAHAAN */}
           <div className="flex flex-col gap-6">
             <h3 className="font-bold text-white text-base tracking-wide uppercase text-xs">Perusahaan</h3>
             <div className="flex flex-col gap-4 text-[#F8F0E5]/70 text-sm font-medium">
-              <Link href="/about" className="hover:text-white transition-colors w-fit">Tentang Kami</Link>
+              <Link href="/team" className="hover:text-white transition-colors w-fit">Tentang Kami</Link>
               <Link href="/portfolio" className="hover:text-white transition-colors w-fit">Portofolio</Link>
-              <Link href="/blog" className="hover:text-white transition-colors w-fit">Jurnal</Link>
+              <Link href="/blog" className="hover:text-white transition-colors w-fit">Blog</Link>
+              <Link href="/reviews" className="hover:text-white transition-colors w-fit">Ulasan Klien</Link>
               <Link href="/contact" className="hover:text-white transition-colors w-fit">Hubungi Kami</Link>
             </div>
           </div>
 
-          {/* SERVICES */}
+          {/* LAYANAN */}
           <div className="flex flex-col gap-6">
             <h3 className="font-bold text-white text-base tracking-wide uppercase text-xs">Layanan</h3>
             <div className="flex flex-col gap-4 text-[#F8F0E5]/70 text-sm font-medium">
-              <Link href="/services" className="hover:text-white transition-colors w-fit">Landing Page</Link>
-              <Link href="/services" className="hover:text-white transition-colors w-fit">Website Profil Perusahaan</Link>
-              <Link href="/services" className="hover:text-white transition-colors w-fit">Portofolio Kreatif</Link>
-              <Link href="/services" className="hover:text-white transition-colors w-fit">Toko Online</Link>
-              <Link href="/services" className="hover:text-white transition-colors w-fit">Aplikasi & Dashboard</Link>
+              <Link href="/services" className="hover:text-white transition-colors w-fit">Paket & Harga</Link>
+              <Link href="/calculator" className="hover:text-white transition-colors w-fit">Kalkulator Harga</Link>
+              <Link href="/portfolio" className="hover:text-white transition-colors w-fit">Portofolio</Link>
+              <Link href="/team" className="hover:text-white transition-colors w-fit">Tim Kami</Link>
             </div>
           </div>
 

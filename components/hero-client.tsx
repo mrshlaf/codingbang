@@ -3,9 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Globe } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import logoImage from "@/app/images/logo-codingbang-removebg.png";
-import { useEffect } from "react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -24,15 +23,6 @@ const itemVariants = {
 };
 
 export function HeroClient() {
-  useEffect(() => {
-    try {
-      if ((window as any).instgrm) {
-        (window as any).instgrm.Embeds.process();
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  }, []);
   return (
     <section className="w-full min-h-[92vh] flex items-center justify-center px-6 lg:px-12 relative overflow-hidden bg-background">
       
@@ -54,15 +44,16 @@ export function HeroClient() {
             variants={itemVariants}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-foreground leading-[1.05]"
           >
-            Website yang Berdampak, <br />
-            <span className="text-muted-foreground font-serif italic font-light tracking-normal block mt-1">bukan sekadar indah.</span>
+            Website Kencang, <br />
+            <span className="text-muted-foreground font-serif italic font-light tracking-normal block mt-1">Tampil Beda.</span>
           </motion.h1>
           
           <motion.p 
             variants={itemVariants}
             className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed font-medium"
           >
-            Kami merakit setiap proyek dari baris kode nol. Tanpa templat pasaran, kecepatan mutlak, keamanan maksimal, dan estetika premium untuk bisnis yang menolak berkompromi.
+            Dibangun dari nol tanpa template. Cepat di mata, ringan di kantong. 
+            Konsultasi dulu, baru deal — tanpa tekanan.
           </motion.p>
           
           <motion.div 
@@ -70,19 +61,21 @@ export function HeroClient() {
             className="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto"
           >
             <Link
-              href="/services"
+              href="/layanan"
               className="group inline-flex items-center justify-center gap-2.5 h-14 px-8 rounded-full font-bold text-base bg-foreground text-background hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-foreground/10"
             >
-              <Globe className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-              Jelajahi Layanan
-            </Link>
-            <Link
-              href="/portfolio"
-              className="group inline-flex items-center justify-center gap-2 h-14 px-8 rounded-full font-bold text-base bg-transparent text-foreground border-2 border-border hover:border-foreground/40 hover:bg-foreground/[0.02] active:scale-95 transition-all duration-300"
-            >
-              Lihat Karya Kami
+              Lihat Paket & Harga
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
+            <a
+              href="https://wa.me/6285810289428?text=Halo%20CODING%20BANG%2C%20saya%20mau%20konsultasi%20soal%20website"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-2 h-14 px-8 rounded-full font-bold text-base bg-transparent text-foreground border-2 border-border hover:border-foreground/40 hover:bg-foreground/[0.02] active:scale-95 transition-all duration-300"
+            >
+              <MessageCircle className="w-5 h-5" />
+              WhatsApp Sekarang
+            </a>
           </motion.div>
         </motion.div>
  

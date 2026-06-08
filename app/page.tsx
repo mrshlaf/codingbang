@@ -4,10 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { HeroClient } from "@/components/hero-client";
-import Script from "next/script";
-import comingSoonImage from "@/app/images/coming soon.png";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Laptop, Rocket } from "lucide-react";
+import { ArrowRight, Code, Users, Award, Star, MessageCircle } from "lucide-react";
+import { PROJECTS } from "@/lib/data";
+import comingSoonImage from "@/app/images/coming soon.png";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -22,131 +22,156 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100, damping: 15 } },
 };
 
+const MOCK_REVIEWS = [
+  {
+    name: "Rina Wijaya",
+    project: "Toko Online Sejahtera",
+    rating: 5,
+    text: "Hasilnya超出 ekspektasi. Website toko online saya jadi lebih cepat dan profesional. Prosesnya juga cepat banget!",
+    initial: "RW",
+  },
+  {
+    name: "Doni Prasetyo",
+    project: "Company Profile PT Maju",
+    rating: 5,
+    text: "Akhirnya nemu developer yang ngerti kebutuhan bisnis. Bukan cuma bikin website cantik, tapi juga cepat dan SEO-friendly.",
+    initial: "DP",
+  },
+  {
+    name: "Sari Amalia",
+    project: "Landing Page Kreator",
+    rating: 4,
+    text: "Desainnya premium banget. Suka sama hasil portfolionya. Pasti recommended ke temen-temen!",
+    initial: "SA",
+  },
+];
+
+const featuredProjects = PROJECTS.filter(p => p.is_featured);
+
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 w-full overflow-hidden">
       <HeroClient />
 
-      {/* QUICK VALUE PROPOSITION */}
-      <section className="w-full py-24 px-6 border-t border-[#2e4f44]/30 bg-background relative">
+      {/* ANGKA KREDIBILITAS */}
+      <section className="w-full py-16 px-6 bg-card border-y border-border/40">
         <motion.div 
-          className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8"
+          className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
         >
           {[
-            {
-              title: "Hand-Coded. Tanpa Templat.",
-              description: "Setiap piksel dan baris kode dirancang eksklusif untuk keunikan identitas brand Anda.",
-              icon: Sparkles
-            },
-            {
-              title: "Arsitektur Modern.",
-              description: "Didukung oleh Next.js dan Supabase. Mengabaikan sistem lambat WordPress.",
-              icon: Laptop
-            },
-            {
-              title: "Kecepatan Ekstrim.",
-              description: "Kami menghormati waktu klien Anda. Website yang lambat adalah kerugian bisnis nyata.",
-              icon: Rocket
-            }
-          ].map((val, i) => {
-            const Icon = val.icon;
+            { angka: "50+", label: "Proyek Selesai", icon: Code },
+            { angka: "40+", label: "Client Puas", icon: Users },
+            { angka: "3+", label: "Tahun Pengalaman", icon: Award },
+          ].map((item, i) => {
+            const Icon = item.icon;
             return (
-              <motion.div 
-                key={i} 
-                className="flex flex-col gap-5 p-8 rounded-3xl border border-border/40 bg-card/50 hover:bg-muted/10 hover:border-[#2e4f44]/40 hover:-translate-y-2 transition-all duration-500 group shadow-sm hover:shadow-xl"
-                variants={itemVariants}
-              >
-                <div className="w-12 h-12 rounded-2xl bg-muted flex items-center justify-center text-foreground font-semibold group-hover:scale-110 group-hover:bg-[#1C352D] group-hover:text-white transition-all duration-500 shadow-sm">
+              <motion.div key={i} variants={itemVariants} className="flex flex-col items-center text-center gap-2 p-6">
+                <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center text-foreground">
                   <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-extrabold text-foreground tracking-tight">{val.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm font-medium">
-                  {val.description}
-                </p>
+                <span className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight">{item.angka}</span>
+                <span className="text-sm font-medium text-muted-foreground">{item.label}</span>
               </motion.div>
             );
           })}
         </motion.div>
       </section>
 
-      {/* INSTAGRAM JOURNAL SPOTLIGHT */}
-      <Script 
-        src="https://www.instagram.com/embed.js" 
-        strategy="lazyOnload" 
-      />
-      <section className="w-full py-24 px-6 bg-card border-y border-border/40 relative overflow-hidden">
-        <div className="absolute -top-40 right-1/4 w-[500px] h-[500px] bg-foreground/[0.01] rounded-full blur-[120px] pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
-          
-          {/* Text Info */}
-          <motion.div 
-            className="flex flex-col items-start gap-6 lg:col-span-6"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#4a6358] bg-[#eae3d8]/40 dark:bg-[#244238] px-3.5 py-1.5 rounded-full">Jurnal Kami</span>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-[1.15]">
-              Kami berbagi wawasan <br />
-              <span className="text-muted-foreground font-serif italic font-light">langsung di Instagram.</span>
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed font-medium">
-              Kami menulis tentang optimasi performa web, desain sistem, arsitektur headless, dan mengapa website hand-coded mendominasi kredibilitas bisnis modern. Ikuti akun kami untuk belajar bersama.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-2">
-              <a 
-                href="https://www.instagram.com/codingbang/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-12 px-6 rounded-full font-bold bg-[#1C352D] text-[#F8F0E5] hover:bg-[#1C352D]/90 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-[#1C352D]/10"
-              >
-                Ikuti @codingbang
-              </a>
-              <Link 
-                href="/blog"
-                className="inline-flex items-center justify-center h-12 px-6 rounded-full font-bold border border-border/60 text-foreground hover:bg-muted/10 transition-all"
-              >
-                Lihat Semua Artikel
-              </Link>
-            </div>
+      {/* HIGHLIGHT PAKET */}
+      <section className="w-full py-24 px-6 bg-background">
+        <motion.div 
+          className="max-w-7xl mx-auto flex flex-col gap-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <motion.div variants={itemVariants} className="flex flex-col items-center text-center gap-3">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#4a6358] bg-[#eae3d8]/40 dark:bg-[#244238] px-3.5 py-1.5 rounded-full">Paket Layanan</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">Pilih Sesuai Kebutuhan</h2>
+            <p className="text-muted-foreground max-w-2xl text-base font-medium">Harga transparan, konsultasi dulu, baru deal.</p>
           </motion.div>
-          
-          {/* Live Instagram Embed Card */}
-          <motion.div 
-            className="lg:col-span-6 flex justify-center w-full relative z-10"
-            initial={{ opacity: 0, scale: 0.95, y: 30 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            viewport={{ once: true }}
-          >
-            <div className="w-full max-w-[450px]">
-              <blockquote className="instagram-media mx-auto" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DYfPR_jkwBQ/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style={{ background: "#FFF", border: "none", borderRadius: "24px", boxShadow: "0 10px 30px -10px rgba(0,0,0,0.15)", margin: "1px", maxWidth: "540px", minWidth: "326px", padding: 0, width: "calc(100% - 2px)" }}>
-                <div style={{ padding: "16px" }}>
-                  <a href="https://www.instagram.com/p/DYfPR_jkwBQ/?utm_source=ig_embed&amp;utm_campaign=loading" style={{ background: "#FFFFFF", lineHeight: 0, padding: "0", textAlign: "center", textDecoration: "none", width: "100%" }} target="_blank" rel="noopener noreferrer">
-                    <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-                      <div style={{ backgroundColor: "#F4F4F4", borderRadius: "50%", flexGrow: 0, height: "40px", marginRight: "14px", width: "40px" }}></div>
-                      <div style={{ display: "flex", flexDirection: "column", flexGrow: 1, justifyContent: "center" }}>
-                        <div style={{ backgroundColor: "#F4F4F4", borderRadius: "4px", flexGrow: 0, height: "14px", marginBottom: "6px", width: "100px" }}></div>
-                        <div style={{ backgroundColor: "#F4F4F4", borderRadius: "4px", flexGrow: 0, height: "14px", width: "60px" }}></div>
-                      </div>
-                    </div>
-                  </a>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Starter",
+                price: "Mulai Rp 1,5 JT",
+                desc: "Landing page 1–3 halaman. Cocok untuk UMKM, personal brand, atau promosi produk.",
+                features: ["1–3 Halaman", "Mobile Responsive", "SEO Basic", "Tombol WhatsApp", "3–5 Hari Jadi"],
+                href: "/services",
+                highlight: false,
+              },
+              {
+                title: "Growth",
+                price: "Mulai Rp 4 JT",
+                desc: "Company profile multi-halaman. Cocok untuk bisnis yang butuh kredibilitas online.",
+                features: ["5–10 Halaman", "CMS/Admin Opsional", "SEO Lengkap", "Blog Sederhana", "7–14 Hari Jadi"],
+                href: "/services",
+                highlight: true,
+              },
+              {
+                title: "Custom",
+                price: "Konsultasi",
+                desc: "Web app, toko online, atau sistem custom. Sesuai kebutuhan spesifik Anda.",
+                features: ["Tak Terbatas Halaman", "Full Custom Fitur", "Dashboard Admin", "Database Dinamis", "Sesuai Scope"],
+                href: "/calculator",
+                highlight: false,
+              },
+            ].map((pkg, i) => (
+              <motion.div
+                key={i}
+                variants={itemVariants}
+                className={cn(
+                  "flex flex-col gap-6 p-8 rounded-3xl border transition-all duration-500 relative overflow-hidden group",
+                  pkg.highlight
+                    ? "border-foreground bg-foreground text-background shadow-2xl hover:scale-[1.02]"
+                    : "border-border/40 bg-card text-foreground shadow-sm hover:shadow-xl hover:border-foreground/30 hover:-translate-y-1"
+                )}
+              >
+                {pkg.highlight && (
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-background/5 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/3" />
+                )}
+                <div className="flex items-center justify-between">
+                  <h3 className={cn("text-2xl font-extrabold tracking-tight")}>{pkg.title}</h3>
+                  {pkg.highlight && (
+                    <span className="text-[10px] font-bold uppercase tracking-widest bg-background/20 text-background px-3 py-1 rounded-full">Terpopuler</span>
+                  )}
                 </div>
-              </blockquote>
-            </div>
-          </motion.div>
-          
-        </div>
+                <div className={cn("text-3xl font-extrabold tracking-tight", pkg.highlight ? "text-background/90" : "text-foreground")}>{pkg.price}</div>
+                <p className={cn("text-sm leading-relaxed font-medium", pkg.highlight ? "text-background/80" : "text-muted-foreground")}>{pkg.desc}</p>
+                <ul className="flex flex-col gap-3 mt-2">
+                  {pkg.features.map((f, fi) => (
+                    <li key={fi} className="flex items-center gap-2.5 text-sm font-medium">
+                      <div className={cn("w-1.5 h-1.5 rounded-full", pkg.highlight ? "bg-background/60" : "bg-foreground/40")} />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={pkg.href}
+                  className={cn(
+                    "mt-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full font-bold text-sm transition-all duration-300",
+                    pkg.highlight
+                      ? "bg-background text-foreground hover:bg-background/90"
+                      : "bg-foreground text-background hover:bg-foreground/90"
+                  )}
+                >
+                  Lihat Detail
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
-      {/* PORTFOLIO PREVIEW */}
-      <section className="w-full py-24 px-6 bg-background">
+      {/* POTONGAN PORTOFOLIO */}
+      <section className="w-full py-24 px-6 bg-card">
         <div className="max-w-7xl mx-auto flex flex-col gap-16">
           <motion.div 
             className="flex flex-col items-center text-center gap-3"
@@ -155,8 +180,8 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-extrabold tracking-tight text-foreground">Karya Pilihan</h2>
-            <p className="text-muted-foreground max-w-2xl text-base font-medium">Portofolio terbaru dari pengalaman digital berkinerja tinggi yang kami bangun untuk brand-brand visioner.</p>
+            <h2 className="text-4xl font-extrabold tracking-tight text-foreground">Karya Terpilih</h2>
+            <p className="text-muted-foreground max-w-2xl text-base font-medium">Beberapa proyek yang baru saja kami selesaikan.</p>
           </motion.div>
           
           <motion.div 
@@ -166,21 +191,21 @@ export default function Home() {
             whileInView="show"
             viewport={{ once: true, margin: "-100px" }}
           >
-            {[1, 2].map((i) => (
-              <motion.div key={i} variants={itemVariants}>
-                <Link href="/portfolio" className="group relative w-full aspect-[4/3] bg-card rounded-3xl overflow-hidden border border-border/40 block shadow-sm hover:shadow-2xl hover:border-[#2e4f44]/30 transition-all duration-500">
+            {featuredProjects.map((project) => (
+              <motion.div key={project.id} variants={itemVariants}>
+                <Link href={`/portfolio/${project.slug}`} className="group relative w-full aspect-[4/3] bg-card rounded-3xl overflow-hidden border border-border/40 block shadow-sm hover:shadow-2xl hover:border-foreground/30 transition-all duration-500">
                   <div className="absolute inset-0 w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out">
                     <Image 
                       src={comingSoonImage} 
-                      alt="Proyek Unggulan" 
+                      alt={project.title} 
                       fill 
                       className="object-cover" 
                     />
                   </div>
                   <div className="absolute inset-0 bg-foreground/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-background/95 via-background/60 to-transparent z-20">
-                    <h3 className="text-2xl font-extrabold text-foreground group-hover:text-[#1C352D] dark:group-hover:text-[#F8F0E5] transition-colors">Proyek Unggulan</h3>
-                    <p className="text-muted-foreground mt-1 font-medium text-sm">Aplikasi Web &middot; Next.js &middot; Framer Motion</p>
+                    <h3 className="text-2xl font-extrabold text-foreground group-hover:text-[#1C352D] dark:group-hover:text-[#F8F0E5] transition-colors">{project.title}</h3>
+                    <p className="text-muted-foreground mt-1 font-medium text-sm">{project.tech_stack.slice(0, 3).join(" · ")}</p>
                   </div>
                 </Link>
               </motion.div>
@@ -196,19 +221,77 @@ export default function Home() {
           >
             <Link
               href="/portfolio"
-              className={cn(
-                "inline-flex items-center justify-center h-12 px-8 rounded-full font-bold text-base transition-all duration-300",
-                "bg-transparent text-foreground border border-border",
-                "hover:bg-[#1C352D] hover:text-[#F8F0E5] hover:border-[#1C352D]"
-              )}
+              className="inline-flex items-center justify-center h-12 px-8 rounded-full font-bold text-base transition-all duration-300 bg-transparent text-foreground border border-border hover:bg-[#1C352D] hover:text-[#F8F0E5] hover:border-[#1C352D]"
             >
-              Lihat Seluruh Portofolio
+              Lihat Semua Karya
             </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* CTA BANNER */}
+      {/* TESTIMONIAL */}
+      <section className="w-full py-24 px-6 bg-background">
+        <motion.div 
+          className="max-w-6xl mx-auto"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex flex-col items-center text-center gap-3 mb-16">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#4a6358] bg-[#eae3d8]/40 dark:bg-[#244238] px-3.5 py-1.5 rounded-full">Testimonial</span>
+            <h2 className="text-4xl font-extrabold tracking-tight text-foreground">Kata Mereka</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {MOCK_REVIEWS.map((review, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="flex flex-col gap-5 p-8 rounded-3xl border border-border/40 bg-card shadow-sm hover:shadow-lg transition-shadow"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-foreground text-background flex items-center justify-center font-bold text-sm">
+                    {review.initial}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground text-sm">{review.name}</h4>
+                    <p className="text-xs text-muted-foreground">{review.project}</p>
+                  </div>
+                </div>
+                <div className="flex gap-1">
+                  {Array.from({ length: review.rating }).map((_, ri) => (
+                    <Star key={ri} className="w-4 h-4 fill-foreground text-foreground" />
+                  ))}
+                  {Array.from({ length: 5 - review.rating }).map((_, ri) => (
+                    <Star key={ri} className="w-4 h-4 text-muted-foreground/30" />
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">&ldquo;{review.text}&rdquo;</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div 
+            className="flex justify-center mt-10"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <Link
+              href="/reviews"
+              className="inline-flex items-center justify-center h-12 px-8 rounded-full font-bold text-base transition-all duration-300 bg-transparent text-foreground border border-border hover:bg-[#1C352D] hover:text-[#F8F0E5] hover:border-[#1C352D]"
+            >
+              Lihat Semua Ulasan
+            </Link>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* CTA FINAL */}
       <section className="w-full py-24 px-6 border-t border-[#2e4f44]/30 bg-[#1C352D] text-[#F8F0E5] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
         
@@ -219,21 +302,28 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">Siap mewujudkan mahakarya website Anda?</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">Siap Punya Website Impian?</h2>
           <p className="text-lg text-[#F8F0E5]/80 max-w-2xl font-medium leading-relaxed">
-            Mari diskusikan bagaimana kami dapat meningkatkan otoritas digital bisnis Anda. Diskusi santai, tanpa tekanan, murni merumuskan solusi terbaik.
+            Konsultasi gratis. Tanpa tekanan. Ceritakan kebutuhan Anda, kami siap membantu.
           </p>
-          <Link
-            href="/contact"
-            className={cn(
-              "group inline-flex items-center justify-center gap-2.5 h-14 px-10 rounded-full font-bold text-lg mt-4",
-              "bg-[#F8F0E5] text-[#1C352D]",
-              "hover:scale-105 active:scale-95 transition-all duration-300 shadow-2xl"
-            )}
-          >
-            <span>Mulai Konsultasi</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 mt-4">
+            <a
+              href="https://wa.me/6285810289428?text=Halo%20CODING%20BANG%2C%20saya%20mau%20konsultasi%20soal%20website"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-2.5 h-14 px-10 rounded-full font-bold text-lg bg-[#F8F0E5] text-[#1C352D] hover:scale-105 active:scale-95 transition-all duration-300 shadow-2xl"
+            >
+              <MessageCircle className="w-5 h-5" />
+              <span>WhatsApp Sekarang</span>
+            </a>
+            <Link
+              href="/calculator"
+              className="inline-flex items-center justify-center gap-2 h-14 px-10 rounded-full font-bold text-lg border-2 border-[#F8F0E5]/30 text-[#F8F0E5] hover:bg-[#F8F0E5]/10 transition-all"
+            >
+              Hitung Estimasi Harga
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
         </motion.div>
       </section>
     </div>

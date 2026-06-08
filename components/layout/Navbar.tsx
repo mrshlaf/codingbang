@@ -10,10 +10,10 @@ import { cn } from "@/lib/utils";
 import logoImage from "@/app/images/logo-codingbang-removebg.png";
 
 const navLinks = [
-  { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/portfolio" },
+  { name: "Layanan", href: "/services" },
+  { name: "Portofolio", href: "/portfolio" },
   { name: "Blog", href: "/blog" },
-  { name: "About", href: "/about" },
+  { name: "Tim", href: "/team" },
 ];
 
 export function Navbar() {
@@ -168,7 +168,7 @@ export function Navbar() {
                 href="/contact"
                 className="group flex items-center gap-2 text-sm font-bold px-6 py-2.5 rounded-full bg-foreground text-background hover:scale-105 active:scale-95 transition-all shadow-lg shadow-foreground/10"
               >
-                Contact
+                Konsultasi
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </nav>
@@ -231,7 +231,7 @@ export function Navbar() {
                 href="/contact"
                 className="flex items-center justify-between w-full p-6 rounded-3xl bg-foreground text-background font-bold text-xl"
               >
-                Start a project
+                Mulai Proyek
                 <ArrowRight className="w-6 h-6" />
               </Link>
             </motion.div>
