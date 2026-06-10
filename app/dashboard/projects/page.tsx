@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Plus, Pencil } from "lucide-react";
 import { DeleteButton } from "../delete-button";
 
-export const metadata = { title: "Projects | CODING BANG" };
+export const metadata = { title: "Projects" };
 
 export default async function ProjectsPage() {
   const projects = getAllProjects();

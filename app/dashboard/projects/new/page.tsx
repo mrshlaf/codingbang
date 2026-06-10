@@ -1,6 +1,6 @@
 import { ProjectForm } from "../project-form";
 
-export const metadata = { title: "Tambah Project | CODING BANG" };
+export const metadata = { title: "Tambah Project" };
 
 export default function NewProjectPage() {
   return (

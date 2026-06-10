@@ -18,22 +18,22 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "CODING BANG - Premium Web Studio",
-    template: "%s | CODING BANG",
+    default: "Coding Bang - Premium Web Studio",
+    template: "%s | Coding Bang",
   },
   description: "Web studio & tech education hub. Hand-coded from scratch. Zero templates. We build fast, scalable, and premium digital experiences.",
   openGraph: {
-    title: "CODING BANG - Premium Web Studio",
+    title: "Coding Bang - Premium Web Studio",
     description: "Hand-coded from scratch. Zero templates. Fast, scalable, and premium digital experiences.",
     url: "https://codingbang.vercel.app",
-    siteName: "CODING BANG",
+    siteName: "Coding Bang",
     locale: "id_ID",
     type: "website",
     // images: [{ url: "https://codingbang.vercel.app/og-image.jpg" }] // Uncomment saat OG Image sudah siap
   },
   twitter: {
     card: "summary_large_image",
-    title: "CODING BANG - Premium Web Studio",
+    title: "Coding Bang - Premium Web Studio",
     description: "Premium web development and tech education hub.",
   },
   robots: {

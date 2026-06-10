@@ -2,7 +2,7 @@ import { getProjectById } from "@/lib/admin-store";
 import { redirect } from "next/navigation";
 import { ProjectForm } from "../../project-form";
 
-export const metadata = { title: "Edit Project | CODING BANG" };
+export const metadata = { title: "Edit Project" };
 
 export default async function EditProjectPage({
   params,

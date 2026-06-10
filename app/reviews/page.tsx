@@ -2,7 +2,7 @@ import { getReviews, getReviewStats } from "@/lib/data";
 import { ReviewsClient } from "@/components/reviews-client";
 
 export const metadata = {
-  title: "Reviews | CODING BANG",
+  title: "Reviews",
   description: "Lihat apa kata klien tentang pengalaman mereka menggunakan jasa pembuatan website CODING BANG.",
 };
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 import { DeleteButton } from "../delete-button";
 
-export const metadata = { title: "Reviews | CODING BANG" };
+export const metadata = { title: "Reviews" };
 
 export default async function ReviewsPage() {
   const reviews = getAllReviews();

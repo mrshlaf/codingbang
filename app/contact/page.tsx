@@ -1,7 +1,7 @@
 import { ContactClient } from "@/components/contact-client";
 
 export const metadata = {
-  title: "Contact | CODING BANG",
+  title: "Contact",
   description: "Hubungi CODING BANG untuk konsultasi pembuatan website. Gratis, tanpa tekanan.",
 };
 

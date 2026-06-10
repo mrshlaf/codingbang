@@ -2,7 +2,7 @@ import { getProjects } from "@/lib/data";
 import { PortfolioClient } from "@/components/portfolio-client";
 
 export const metadata = {
-  title: "Portfolio | CODING BANG",
+  title: "Portfolio",
   description: "Lihat karya terbaik kami — dari landing page hingga web app kompleks.",
 };
 

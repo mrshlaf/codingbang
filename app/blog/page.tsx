@@ -2,7 +2,7 @@ import { BlogClient } from "@/components/blog-client";
 import { getAllPosts } from "@/lib/mdx";
 
 export const metadata = {
-  title: "Blog | CODING BANG",
+  title: "Blog",
   description: "Artikel dan wawasan seputar web development, performa, dan digital bisnis.",
 };
 

@@ -1,7 +1,7 @@
 import { getInquiries } from "@/lib/admin-actions";
 import { StatusSelect } from "./status-select";
 
-export const metadata = { title: "Inquiries | CODING BANG" };
+export const metadata = { title: "Inquiries" };
 
 export default async function InquiriesPage() {
   const inquiries = await getInquiries();

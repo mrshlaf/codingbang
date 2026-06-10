@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 import { DeleteButton } from "../delete-button";
 
-export const metadata = { title: "Team | CODING BANG" };
+export const metadata = { title: "Team" };
 
 export default async function TeamPage() {
   const members = getAllTeamMembers();
