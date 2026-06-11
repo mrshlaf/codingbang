@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import {
   MessageCircle,
   Users,
+  Globe
 } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import type { TeamMember } from "@/lib/data";
 
 const containerVariants = {
@@ -45,7 +47,7 @@ export function TeamClient({ members }: { members: TeamMember[] }) {
           Bersama Kami
         </div>
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
-          Tim Kami
+          Meet Your Developers
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl font-medium">
           Kami adalah tim kecil dengan standar besar. Setiap proyek dikerjakan
@@ -80,10 +82,23 @@ export function TeamClient({ members }: { members: TeamMember[] }) {
                 </p>
               </div>
               {member.bio && (
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3 sm:line-clamp-none">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3 sm:line-clamp-none mb-2">
                   {member.bio}
                 </p>
               )}
+              <div className="flex items-center gap-3 mt-auto pt-4 border-t border-border/40">
+                {member.social?.github && member.social.github !== "#" && (
+                  <a href={member.social.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" title="GitHub">
+                    <FaGithub className="w-4 h-4" />
+                  </a>
+                )}
+                {member.social?.website && member.social.website !== "#" && (
+                  <a href={member.social.website} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors ml-auto flex items-center gap-1.5 text-xs font-semibold bg-muted/40 px-3 py-1.5 rounded-full hover:bg-muted" title="Portfolio">
+                    <Globe className="w-3.5 h-3.5" />
+                    Portfolio
+                  </a>
+                )}
+              </div>
             </motion.div>
           ))}
         </div>
