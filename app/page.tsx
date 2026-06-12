@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Code, Users, Award, Star, MessageCircle } from "lucide-react";
 import { PROJECTS } from "@/lib/data";
 import { ScreenshotThumbnail } from "@/components/screenshot-thumbnail";
+import { TeamMarquee } from "@/components/team-marquee";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -221,6 +222,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* TIM KAMI MARQUEE */}
+      <TeamMarquee />
 
       {/* TESTIMONIAL */}
       <section className="w-full py-24 px-6 bg-background">
