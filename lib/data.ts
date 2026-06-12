@@ -101,7 +101,7 @@ export const PROJECTS: Project[] = [
     tech_stack: ["Next.js", "Tailwind CSS", "Framer Motion", "AI"],
     client_name: "Nicholas Edmund Tanaka",
     client_url: "https://niconet.site",
-    is_featured: true,
+    is_featured: false,
     completed_at: null,
   },
   {
@@ -116,7 +116,7 @@ export const PROJECTS: Project[] = [
     tech_stack: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
     client_name: "Marshal Aufa",
     client_url: "https://marshal-aufa.vercel.app",
-    is_featured: true,
+    is_featured: false,
     completed_at: null,
   },
   {
@@ -175,8 +175,8 @@ export const PROJECTS: Project[] = [
     images: [],
     tech_stack: ["Next.js", "React", "Vercel"],
     client_name: "Idzhar Dwi Karya",
-    client_url: "https://idzhardwikarya.vercel.app",
-    is_featured: false,
+    client_url: "https://ptidk.vercel.app",
+    is_featured: true,
     completed_at: "2025",
   },
   {
