@@ -191,7 +191,7 @@ export const PROJECTS: Project[] = [
     tech_stack: ["Next.js", "React", "Vercel"],
     client_name: "Fore Nico",
     client_url: "https://fore-nico.vercel.app",
-    is_featured: false,
+    is_featured: true,
     completed_at: "2025",
   },
   {
@@ -206,7 +206,7 @@ export const PROJECTS: Project[] = [
     tech_stack: ["Next.js", "React", "Vercel"],
     client_name: "G2M Church",
     client_url: "https://g2mchurch.vercel.app",
-    is_featured: false,
+    is_featured: true,
     completed_at: "2024",
   },
   {
@@ -236,7 +236,7 @@ export const PROJECTS: Project[] = [
     tech_stack: ["Next.js", "Tailwind CSS"],
     client_name: "Tubagus Dafa Izza Fariz",
     client_url: "https://tubagusdafa.vercel.app/",
-    is_featured: true,
+    is_featured: false,
     completed_at: null,
   },
   {
@@ -251,7 +251,7 @@ export const PROJECTS: Project[] = [
     tech_stack: ["Next.js", "Tailwind CSS"],
     client_name: "David Alexander",
     client_url: "https://dapid.vercel.app/",
-    is_featured: true,
+    is_featured: false,
     completed_at: null,
   },
 ];

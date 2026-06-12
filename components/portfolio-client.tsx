@@ -21,13 +21,21 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-const CATEGORIES = ["Semua", "E-Commerce", "Web App", "Landing Page", "Company Profile"];
+const CATEGORIES = ["Semua", "Company Profile", "Web App", "E-Commerce", "Landing Page"];
 
 export function PortfolioClient({ projects }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState("Semua");
 
+  const categoryOrder = ["Landing Page", "Company Profile", "Web App", "E-Commerce"];
+
   const filtered = activeCategory === "Semua"
-    ? projects
+    ? [...projects].sort((a, b) => {
+        const rankA = categoryOrder.indexOf(a.category);
+        const rankB = categoryOrder.indexOf(b.category);
+        const finalRankA = rankA === -1 ? 999 : rankA;
+        const finalRankB = rankB === -1 ? 999 : rankB;
+        return finalRankA - finalRankB;
+      })
     : projects.filter(p => p.category === activeCategory);
 
   return (

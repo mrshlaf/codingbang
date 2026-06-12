@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, useAnimationFrame, useMotionValue, useMotionValueEvent } from "framer-motion";
+import { motion, useAnimationFrame, useMotionValue, useMotionValueEvent, animate } from "framer-motion";
 import { TEAM_MEMBERS } from "@/lib/data";
-import { Globe } from "lucide-react";
+import { Globe, ChevronLeft, ChevronRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
 export function TeamMarquee() {
@@ -26,6 +26,18 @@ export function TeamMarquee() {
   const [isDragging, setIsDragging] = useState(false);
 
   const x = useMotionValue(0);
+
+  const handleSkip = (direction: "left" | "right") => {
+    const currentX = x.get();
+    const skipAmount = 340; // Approx one card width + gap
+    const targetX = direction === "left" ? currentX + skipAmount : currentX - skipAmount;
+    
+    animate(x, targetX, {
+      type: "spring",
+      stiffness: 150,
+      damping: 20
+    });
+  };
 
   useEffect(() => {
     const calculateWidth = () => {
@@ -86,8 +98,20 @@ export function TeamMarquee() {
           </p>
         </motion.div>
 
-        {/* Marquee Container */}
-        <div className="relative flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        {/* Marquee Container with Side Buttons */}
+        <div className="relative flex items-center w-full group/marquee">
+          {/* Left Button */}
+          <div className="absolute left-2 sm:left-6 z-10 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            <button
+              onClick={() => handleSkip("left")}
+              className="p-3 rounded-full border border-border/40 bg-background/80 backdrop-blur-md text-foreground hover:bg-foreground hover:text-background shadow-lg transition-all duration-200"
+              aria-label="Scroll Left"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+          </div>
+
+          <div className="relative flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <motion.div
             ref={containerRef}
             className="flex w-max gap-6 py-4 cursor-grab active:cursor-grabbing"
@@ -151,6 +175,18 @@ export function TeamMarquee() {
               </div>
             ))}
           </motion.div>
+        </div>
+
+          {/* Right Button */}
+          <div className="absolute right-2 sm:right-6 z-10 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            <button
+              onClick={() => handleSkip("right")}
+              className="p-3 rounded-full border border-border/40 bg-background/80 backdrop-blur-md text-foreground hover:bg-foreground hover:text-background shadow-lg transition-all duration-200"
+              aria-label="Scroll Right"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
